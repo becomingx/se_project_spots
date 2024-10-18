@@ -1,0 +1,33 @@
+.footer {
+  margin: 0;
+  box-sizing: border-box;
+  color: #212121;
+  font-family: poppins, Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 400;
+  gap: 20px;
+  padding-top: 40px;
+  padding-bottom: 60px;
+  padding-left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.footer__copyright {
+  margin: 0;
+  width: auto;
+  opacity: 0.7;
+}
+
+@media screen and (max-width: 320px) {
+  .footer {
+    padding-top: 20px;
+    padding-bottom: 40px;
+  }
+
+  .footer__copyright {
+    margin-bottom: 40px;
+  }
+}
