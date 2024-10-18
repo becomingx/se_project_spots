@@ -76,8 +76,6 @@ All media queries are set at a max of 627px
 
 **Video**
 
-- [Link to the project video] https://drive.google.com/file/d/19NP3zFQDkcpWXxFGPZvV3CsdlkObASVr/view?usp=sharing
-
 ## Deployment
 
 This webpage is deployed to GitHub Pages
