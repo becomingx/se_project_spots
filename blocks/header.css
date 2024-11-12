@@ -10,28 +10,3 @@
   height: 26px;
 }
 
-@media screen (max-width: 320px) {
-  .header {
-    background-color: #fff;
-    padding: 10px 0;
-    display: flex;
-    justify-content: center;
-  }
-
-  .header__logo {
-    justify-content: center;
-  }
-}
-
-@media screen (627px) {
-  .header {
-    background-color: #fff;
-    padding: 10px 0;
-    display: flex;
-    justify-content: center;
-  }
-
-  .header__logo {
-    justify-content: center;
-  }
-}
