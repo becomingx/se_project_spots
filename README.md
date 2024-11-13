@@ -72,11 +72,10 @@ All media queries are set at a max of 627px
 
 ## Screenshots
 
-![project features](image.png)
-
 **Video**
 
 ## Deployment
 
 This webpage is deployed to GitHub Pages
+https://becomingx.github.io/se_project_spots/
 
