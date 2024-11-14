@@ -156,6 +156,15 @@
 }
 
 @media screen and (max-width: 627px) {
+
+  .profile__avatar {
+    margin: 0 0 12px;
+    height: 80px;
+    width: 80px;
+    margin-bottom: 12px;
+    margin-right: 0;
+  }
+
   .profile {
     flex-direction: column;
     max-width: 288px;
@@ -171,6 +180,13 @@
     text-align: center;
   }
 
+  .profile__column {
+    text-align:center;
+    align-items: center;
+    margin: 0 0 20px;
+    margin-right: 0;
+  }
+
   .profile__description {
     margin: 0 0 32px;
     max-width: 288px;
@@ -182,23 +198,16 @@
     max-width: 288px;
   }
 
-  .profile__edit-button {
-    margin: 0;
-    flex-direction: row;
-  }
-
   .profile__section {
     max-width: 288px;
     flex-direction: column;
-  }
-
-  .profile__column {
     align-items: center;
   }
+
 }
 
 @media screen and (max-width: 1024px) {
-  
+
   .profile__name {
     margin-bottom: 6px;
     max-width: 288px;
