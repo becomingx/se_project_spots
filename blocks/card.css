@@ -17,12 +17,14 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  max-width: 250px;
 }
 
 .card__content {
   max-width: 413px;
   margin: 12px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .card__like-button {
@@ -51,15 +53,12 @@
 
   .card__content {
     max-width: 288px;
-    margin: 12px 0 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
   }
 
   .card__title {
     font-size: 16px;
     line-height: 16px;
+    max-width: 250px;
   }
 
   .card__like-button {
