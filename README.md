@@ -69,8 +69,12 @@ The site was designed to provide an optimal viewing experience across a wide ran
 . CSS media queries that apply styles based on device characteristics
 
 [**Video**]
+<<<<<<< HEAD
 https://patriciatirado9.wistia.com/medias/rsoyidujj5
 
+=======
+(https://patriciatirado9.wistia.com/medias/rsoyidujj5)
+>>>>>>> b1203addba12ba7908377740d83d3fbc2eed0cf5
 ## Deployment
 
 This webpage is deployed to GitHub Pages
