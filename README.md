@@ -68,11 +68,8 @@ The site was designed to provide an optimal viewing experience across a wide ran
 . responsive images that scale with the layout
 . CSS media queries that apply styles based on device characteristics
 
-All media queries are set at a max of 627px
-
-## Screenshots
-
-**Video**
+[**Video**]
+https://patriciatirado9.wistia.com/medias/rsoyidujj5
 
 ## Deployment
 
