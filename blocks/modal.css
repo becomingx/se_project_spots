@@ -12,19 +12,39 @@
   visibility: hidden;
 }
 
-
 .modal_opened {
   visibility: visible;
 }
 
 .modal__container {
-  background: #fff;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 1);
   padding: 32px 50px;
+  gap: 32px;
   max-width: 730px;
   width: 100%;
   box-sizing: border-box;
   position: relative;
   border-radius: 8px;
+}
+
+.modal__form {
+  max-width: 630px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__title {
+  font-family: poppins, Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  color: rgba(33, 33, 33, 1);
+  width: 630px;
+  height: 32px;
+  line-height: 32px;
+  font-size: 32px;;
+  margin: 0 0 32px;
+  gap: 421px;
 }
 
 .modal__close-btn {
@@ -33,24 +53,17 @@
   height: 40px;
   top: 32px;
   right: 50px;
-  /*background-image: url(../images/modalCloseButton.svg);
-  background-position: center;
-  background-size: contain;
+  opacity: 40%;
+  background-image: url(../images/modalCloseButton.svg);
+  background-position:center;
   background-repeat: no-repeat;
-  background-color: transparent;
-  opacity: 50%;
-  transition: opacity 0.3s ease-in-out;*/
-
+  background-size: cover;
 }
 
-/*.modal__close-btn:hover {
+.modal__close-btn:hover {
   opacity: 1;
   cursor: pointer;
   transition-duration: 1s;
-}*/
-
-.modal__title {
-  margin: 0 0 32px;
 }
 
 .modal__input {
@@ -67,6 +80,16 @@
   margin-bottom: 32px;
 }
 
+.modal__label-writing {
+  height: 18px;
+  width: 49px;
+  font-family: poppins, Arial, Helvetica, sans-serif;
+  line-height: 17.6px;
+  color: rgba(33, 33, 33, 0.7);
+  font-weight: 500;
+  font-size: 16px;
+}
+
 .modal__submit-btn {
   background-color: #000;
   color: rgba(252, 245, 229, 1);
@@ -75,3 +98,36 @@
   border-radius: 8px;
 }
 
+@media screen and (max-width: 720px) {
+  .modal__container {
+    max-width: 300px;
+    padding: 12px 12px 12px 12px;
+    gap: 24px;
+}
+
+  .modal__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 40px;
+    width: 100%;
+  }
+
+  .modal__close-btn {
+    top: 20px;
+    right: 20px;
+    margin: 0 0 32px;
+  }
+
+  .modal__title-writing {
+    justify-content: space-between;
+    font-size: 20px;
+    line-height: 20px;
+    text-align: center;
+  }
+
+  .modal__submit-btn {
+    align-self: center;
+    width: 100%;
+  }
+}
