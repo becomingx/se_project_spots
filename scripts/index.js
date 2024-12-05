@@ -54,9 +54,21 @@ function handleEditFormSubmit(evt) {
   evt.preventDefault();
   profileName.textContent = editModalNameInput.value;
   profileDescription.textContent = editModalDescriptionInput.value;
-  editModal.classList.remove("modal_opened");
+  closeModal();
 }
 
 profileEditBtn.addEventListener("click", openModal);
 editModalCloseBtn.addEventListener("click", closeModal);
 editFormElement.addEventListener("submit", handleEditFormSubmit);
+
+const cardElement =
+<template id="user">
+<div class="user">
+  <img class="user__avatar" alt="avatar">
+  <p class="user__name"></p>
+</div>
+</template>;
+
+function getCardElement(data) {
+
+}
