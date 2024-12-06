@@ -49,8 +49,11 @@ function getCardElement(data) {
   .cloneNode(true);
 
   const cardNameElement = cardElement.querySelector(".card__title");
+  const cardImageElement = cardElement.querySelector(".card__image");
 
   cardNameElement.textContent = data.name;
+  cardImageElement.src = data.link;
+  cardImageElement.alt = data.name;
 
   return cardElement;
 }
@@ -79,5 +82,4 @@ editFormElement.addEventListener("submit", handleEditFormSubmit);
 for (let i = 0; i < initialCards.length; i++) {
   const cardElement = getCardElement(initialCards[i]);
   cardsList.prepend(cardElement);
-
   }
