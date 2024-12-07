@@ -4,6 +4,7 @@
   width: 100%;
   object-fit: cover;
   display: block;
+  margin: 12px;
 }
 
 .card__title {
@@ -22,9 +23,13 @@
 .card__content {
   max-width: 413px;
   margin: 12px 0 0;
+}
+
+.card__footer {
+  width: 100%;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  margin: 12px;
 }
 
 .card__like-btn {
@@ -37,6 +42,7 @@
   background-repeat: no-repeat;
   background-color: transparent;
   opacity: 40%;
+  cursor: pointer;
 }
 
 .card__like-btn:hover {

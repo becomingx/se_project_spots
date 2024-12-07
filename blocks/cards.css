@@ -13,8 +13,8 @@
   margin: 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, 413px);
-  justify-content: center;
   gap: 40px 20px;
+  justify-content: center;
 }
 
 @media screen and (max-width: 627px) {

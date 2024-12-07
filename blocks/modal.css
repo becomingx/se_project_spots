@@ -49,6 +49,7 @@
 
 .modal__close-btn {
   position: absolute;
+  border-style: none;
   width: 40px;
   height: 40px;
   top: 32px;
@@ -58,6 +59,7 @@
   background-position:center;
   background-repeat: no-repeat;
   background-size: cover;
+  cursor: pointer;
 }
 
 .modal__close-btn:hover {
@@ -96,6 +98,7 @@
   width: 156px;
   padding: 18px 0;
   border-radius: 8px;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 720px) {

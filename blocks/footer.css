@@ -12,7 +12,7 @@
   padding-left: 0;
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .footer__copyright {
