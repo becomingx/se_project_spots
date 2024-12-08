@@ -50,12 +50,14 @@
 .modal__close-btn {
   position: absolute;
   border-style: none;
+  border-radius: 0;
   width: 40px;
   height: 40px;
   top: 32px;
   right: 50px;
   opacity: 40%;
   background-image: url(../images/modalCloseButton.svg);
+  background-color: #fff;
   background-position:center;
   background-repeat: no-repeat;
   background-size: cover;
