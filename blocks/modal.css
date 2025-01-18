@@ -85,8 +85,9 @@
 }
 
 .modal__label-writing {
+  display: flexbox;
   height: 18px;
-  width: 49px;
+  width: 85px;
   font-family: poppins, Arial, Helvetica, sans-serif;
   line-height: 17.6px;
   color: rgba(33, 33, 33, 0.7);
