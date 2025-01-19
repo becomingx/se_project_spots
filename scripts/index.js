@@ -1,4 +1,3 @@
-
 const initialCards = [
   {
       name: "Val Thorens",
@@ -47,7 +46,7 @@ const addModal = document.querySelector("#add-card-modal");
 const addModalFormElement = addModal.querySelector(".modal__form");
 const addModalCloseBtn = addModal.querySelector(".modal__close-btn");
 const addModalCardInput = addModal.querySelector("#add-card-link-input");
-const addModalDescriptionInput = addModal.querySelector("#add-card-description-input");
+const addModalNameInput = addModal.querySelector("#add-card-name-input");
 
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
@@ -75,16 +74,9 @@ function closeModal(modal) {
   modal.classList.remove("modal_opened");
 }
 
-// openModal now accepts a modal as an argument.
-// This argument should be the appropriate HTML element.
-/*function openModal(modal) {
-  // Open the modal that was passed as an argument.
-  modal.classList.add("modal_is-opened");
-}*/
+
 
 profileAddBtn.addEventListener("click", () => {
-  // Use an arrow function and call the openModal method inside it.
-  // Pass it the appropriate modal as an argument.
   openModal(addModal);
 })
 
@@ -107,23 +99,22 @@ function handleEditModalFormSubmit(evt) {
   closeModal();
 }
 
-function handleAddModalFormSubmit(evt) {
-  evt.preventDefault();
-  addModalCardInput.textContent = addModalCardInput.value;
-  addModalDescriptionInput.textContent = addModalDescriptionInput.value;
-  closeModal();
-}
 
-//profileEditBtn.addEventListener("click", openModal);
-//editModalCloseBtn.addEventListener("click", closeModal);
+function handleAddModalFormSubmit(evt) {
+
+  evt.preventDefault();
+  console.log(addModalNameInput);
+  console.log(addModalCardInput);
+  const inputValues = { name: "", link: "" };
+  const addCardElement = getCardElement(inputValues);
+  cardsList.append(addCardElement);
+  closeModal(addModal);
+};
+
 
 editModalFormElement.addEventListener("submit", handleEditModalFormSubmit);
 addModalFormElement.addEventListener("submit", handleAddModalFormSubmit);
 
-/*for (let i = 0; i < initialCards.length; i++) {
-  const cardElement = getCardElement(initialCards[i]);
-  cardsList.prepend(cardElement);
-  }*/
 
 initialCards.forEach((item) => {
   const cardElement = getCardElement(item);
