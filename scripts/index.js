@@ -64,7 +64,7 @@ function getCardElement(data) {
   cardImageElement.alt = data.name;
 
   return cardElement;
-}
+};
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
@@ -72,13 +72,13 @@ function openModal(modal) {
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
-}
+};
 
 
 
 profileAddBtn.addEventListener("click", () => {
   openModal(addModal);
-})
+});
 
 profileEditBtn.addEventListener("click", () => {
   openModal(editModal);
@@ -96,7 +96,7 @@ function handleEditModalFormSubmit(evt) {
   evt.preventDefault();
   profileName.textContent = editModalNameInput.value;
   profileDescription.textContent = editModalDescriptionInput.value;
-  closeModal();
+  closeModal(editModal);
 }
 
 
