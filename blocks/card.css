@@ -52,6 +52,20 @@
   transition-duration: 1s;
 }
 
+.card__like-btn-liked {
+  background-image: url(../images/heartLiked.svg);
+  opacity: 1;
+  cursor: pointer;
+}
+
+.card__like-btn-liked:hover {
+  background-image: url(../images/heartLiked.svg);
+  opacity: 40%;
+  cursor: pointer;
+  transition-duration: 1s;
+}
+
+
 .card__delete-btn {
   position: absolute;
   background-image: url(../images/deleteDefault.svg);

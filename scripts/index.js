@@ -35,8 +35,7 @@ const profileDescription = document.querySelector(".profile__description");
 const profileAddBtn = document.querySelector(".profile__add-btn");
 const profileEditBtn = document.querySelector(".profile__edit-btn");
 
-const likeBtn = document.querySelector(".card__like-btn");
-const deleteBtn = document.querySelector(".card__delete-btn");
+
 
 const editModal = document.querySelector("#edit-modal");
 const editModalFormElement = editModal.querySelector(".modal__form");
@@ -53,6 +52,7 @@ const addModalNameInput = addModal.querySelector("#add-card-name-input");
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
 
+
 function getCardElement(data) {
   const cardElement = cardTemplate.content
   .querySelector(".card")
@@ -60,13 +60,25 @@ function getCardElement(data) {
 
   const cardNameElement = cardElement.querySelector(".card__title");
   const cardImageElement = cardElement.querySelector(".card__image");
+  const likeBtn = cardElement.querySelector(".card__like-btn");
+  const deleteBtn = cardElement.querySelector(".card__delete-btn");
 
   cardNameElement.textContent = data.name;
   cardImageElement.src = data.link;
   cardImageElement.alt = data.name;
 
+  likeBtn.addEventListener("click", () => {
+    likeBtn.classList.toggle("card__like-btn-liked");
+  });
+
+  deleteBtn.addEventListener("click", () => {
+    cardElement.remove();
+  });
+
   return cardElement;
 };
+
+
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
@@ -75,7 +87,6 @@ function openModal(modal) {
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
 };
-
 
 
 profileAddBtn.addEventListener("click", () => {
@@ -93,6 +104,7 @@ addModalCloseBtn.addEventListener("click", () => {
 editModalCloseBtn.addEventListener("click", () => {
   closeModal(editModal);
 });
+
 
 function handleEditModalFormSubmit(evt) {
   evt.preventDefault();
@@ -113,61 +125,10 @@ function handleAddModalFormSubmit(evt) {
   closeModal(addModal);
 };
 
-/*
-function deleteButton() {
-
-};
-
-function likeButton() {
-
-};*/
-
-/*
-Get the button element
-const myButton = document.getElementById('myButton');
-
-Define the function to be executed when the button is clicked
-function handleClick() { alert('Button was clicked!'); }
-
-Attach the event listener to the button
-myButton.addEventListener('click', handleClick);
-
-
-
-function getCardElement(data) {
-  const cardElement = cardTemplate.content
-    .querySelector(".card")
-    .cloneNode(true);
-
-  //Below is where you need to select the card’s interactive elements and set the appropriate event listeners on them.
-  select like btn element
-  (likeBtn)
-
-  attach event listener to like btn
-  likeBtn.addEventListener(("click"), () => {
-    change icon to heartLiked.svg
-});
-
-  select delete button
-  (deleteBtn)
-
-  deleteBtn.addEventListener(("click"), () => {
-  });
-
-
-  return cardElement;
-}
-
-Note that for the like and delete icons, as well as for the preview image modal,
-you’ll need to set a listener on each individual card.
-
-
-
-*/
 
 editModalFormElement.addEventListener("submit", handleEditModalFormSubmit);
-addModalFormElement.addEventListener("submit", handleAddModalFormSubmit);
 
+addModalFormElement.addEventListener("submit", handleAddModalFormSubmit);
 
 initialCards.forEach((item) => {
   const cardElement = getCardElement(item);
