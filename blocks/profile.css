@@ -53,13 +53,13 @@
 }
 
 .profile__edit-btn {
+  display: flex;
   font-family: poppins, Arial, Helvetica, sans-serif;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.2;
   color: #212121;
   margin-top: auto;
-  display: flex;
   gap: 8px;
   opacity: 70%;
   border: none;
