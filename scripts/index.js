@@ -88,6 +88,10 @@ function getCardElement(data) {
     openModal(previewModal);
   });
 
+  previewModalCloseBtn.addEventListener("click", () => {
+    closeModal(previewModal);
+  });
+
   return cardElement;
 };
 
@@ -114,14 +118,6 @@ addModalCloseBtn.addEventListener("click", () => {
 editModalCloseBtn.addEventListener("click", () => {
   closeModal(editModal);
 });
-
-/*
-previewModalImage.addEventListener("click", () => {
-  openModal(previewModal);
-});
-previewModalImage.addEventListener("click", () => {
-  closeModal(previewModal);
-});*/
 
 
 function handleEditModalFormSubmit(evt) {
