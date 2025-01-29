@@ -166,6 +166,18 @@ const initialCards = [
   },
 ];
 
+/*function handlePreviewModal(evt) {
+  evt.preventDefault();
+  const inputValues = { name: "", link: "" };
+  const cardElement = initialCards(inputValues);
+
+  previewModalName = cardElement.name;
+  previewModalImage.alt = cardElement.name;
+  previewModalImage.src = cardElement.link;
+
+};
+*/
+
 const profileEditBtn = document.querySelector(".profile__edit-btn");
 const profileName = document.querySelector(".profile__name");
 const profileDescription = document.querySelector(".profile__description");

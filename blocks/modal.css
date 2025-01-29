@@ -17,7 +17,6 @@
 }
 
 .modal__container {
-  flex-shrink: 0;
   background: rgba(255, 255, 255, 1);
   padding: 32px 50px;
   gap: 32px;
@@ -48,7 +47,7 @@
 }
 
 .modal__close-btn {
-  position: relative;
+  position: absolute;
   border-style: none;
   border-radius: 0;
   width: 40px;
@@ -80,9 +79,8 @@
 
 .preview__modal_container {
   position: relative;
+
   flex-direction: column;
-  max-width: 80vw;
-  height: 80vh;
   border-radius: 8px;
   padding-top: 8px;
   padding-right: 40px;
@@ -122,15 +120,18 @@
   cursor: pointer;
 }
 
-.modal-image {
+.modal__image {
+  border-radius: 8px;
+  height: auto;
+  max-height: 80vh;
   max-width: 80vw;
-  height: 80vh;
   border-radius: 8px;
   margin-bottom: 8px;
 }
 
 .modal__caption {
-  display: flexbox;
+  max-width: auto;
+  display: block;
   border: none;
   box-sizing: border-box;
   text-align: center;
@@ -152,6 +153,7 @@
     padding: 12px 12px 12px 12px;
     gap: 24px;
   }
+
 
   .modal__title {
     display: flex;
