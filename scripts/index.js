@@ -103,6 +103,7 @@ function getCardElement(data) {
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
+
 }
 
 function closeModal(modal) {

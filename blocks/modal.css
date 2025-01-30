@@ -10,10 +10,22 @@
   align-items: center;
   justify-content: center;
   visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 0.5s, opacity 0.5s linear;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s
 }
 
 .modal_opened {
   visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s linear;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s
 }
 
 .modal__container {
