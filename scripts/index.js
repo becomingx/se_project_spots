@@ -30,7 +30,7 @@ const initialCards = [
   },
 
   {
-    name: "Mountain house",
+    name: "Lighthouse",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg"
   }
 
@@ -38,20 +38,18 @@ const initialCards = [
 
 const profileName = document.querySelector(".profile__name");
 const profileDescription = document.querySelector(".profile__description");
-const profileAddBtn = document.querySelector(".profile__add-btn");
-const profileEditBtn = document.querySelector(".profile__edit-btn");
 
+const profileEditBtn = document.querySelector(".profile__edit-btn");
 const editModal = document.querySelector("#edit-modal");
 const editModalFormElement = editModal.querySelector(".modal__form");
 const editModalCloseBtn = editModal.querySelector(".modal__close-btn");
 const editModalNameInput = editModal.querySelector("#profile-name-input");
 const editModalDescriptionInput = editModal.querySelector("#profile-description-input");
 
+const profileAddBtn = document.querySelector(".profile__add-btn");
 const addModal = document.querySelector("#add-card-modal");
 const addModalFormElement = addModal.querySelector(".modal__form");
 const addModalCloseBtn = addModal.querySelector(".modal__close-btn");
-const addModalCardInput = addModal.querySelector("#add-card-link-input");
-const addModalNameInput = addModal.querySelector("#add-card-name-input");
 
 const previewModal = document.querySelector("#preview-modal");
 const previewModalImageElement = previewModal.querySelector(".card__image");
@@ -85,7 +83,7 @@ function getCardElement(data) {
     cardElement.remove();
   });
 
-  cardImageElement.addEventListener("click", () => {
+    cardImageElement.addEventListener("click", () => {
     openModal(previewModal);
     previewModalCaption.textContent = data.name;
     previewModalImageElement.alt = data.name;
@@ -102,9 +100,17 @@ function getCardElement(data) {
 
 
 function openModal(modal) {
+  // Set the placeholder to the text content if it exists, otherwise use the default
+
+  editModalNameInput.placeholder = profileName.textContent;
+  editModalDescriptionInput.placeholder = profileDescription.textContent;
+  // Set the placeholder to the text content if it exists, otherwise use the default
+  /*nameInput.placeholder = itemName.textContent.trim() || 'Name';
+  descriptionInput.placeholder = itemDescription.textContent.trim() || 'Description'*/
+
   modal.classList.add("modal_opened");
 
-}
+};
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
@@ -128,18 +134,19 @@ editModalCloseBtn.addEventListener("click", () => {
 
 function handleEditModalFormSubmit(evt) {
   evt.preventDefault();
-  profileName.textContent = editModalNameInput.value;
-  profileDescription.textContent = editModalDescriptionInput.value;
+
   closeModal(editModal);
+
 };
 
 function handleAddModalFormSubmit(evt) {
 
   evt.preventDefault();
-  console.log(addModalNameInput);
-  console.log(addModalCardInput);
-  const inputValues = { name: "", link: "" };
+  const addModalCardInput = addModal.querySelector("#add-card-link-input");
+  const addModalNameInput = addModal.querySelector("#add-card-name-input");
+  const inputValues = { name: addModalNameInput.value, link: addModalCardInput.value };
   const addCardElement = getCardElement(inputValues);
+
   cardsList.append(addCardElement);
   closeModal(addModal);
 };
