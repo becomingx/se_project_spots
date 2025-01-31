@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -50,9 +51,11 @@
           <ul class="cards__list">
             <template id= "card-template">
               <li class="card">
+                <button type= "button" class= "card__delete-btn"></button>
                 <img src="" alt="" class="card__image">
                 <div class="card__footer">
                   <h2 class="card__title"></h2>
+
                   <button type="button" class="card__like-btn"></button>
                 </div>
               </li>
@@ -69,7 +72,7 @@
         <div class="modal__container">
 
           <h2 class="modal__title"><span class= "modal__title-writing">Edit Profile</span></h2>
-          <button type="button" class="modal__close-btn"></button>
+          <button type="button" class="modal__close-btn edit-modal__close-btn"></button>
 
           <form name= "edit-profile" class="modal__form">
             <label for="profile-name-input" class="modal__label">
@@ -91,7 +94,7 @@
         <div class="modal__container">
 
           <h2 class="modal__title"><span class= "modal__title-writing">Add a Card</span></h2>
-          <button type="button" class="modal__close-btn"></button>
+          <button type="button" class="modal__close-btn add-modal__close-btn"></button>
 
           <form name= "add-card-form" class="modal__form">
             <label for="add-card-link-input" class="modal__label">
@@ -101,13 +104,25 @@
 
             <label for="add-card-name-input" class="modal__label">
               <span class="modal__label-writing">Caption</span>
-              <input id="add-card-name-input" placeholder="Type your caption" type= "url" class="modal__input">
+              <input id="add-card-name-input" placeholder="Type your caption" type= "text" class="modal__input">
             </label>
 
             <button type="submit" class="modal__submit-btn">Save</button>
           </form>
         </div>
       </div>
+
+      <div class="modal" id="preview-modal">
+        <div class="preview__modal_container">
+          <button type="button" aria-label="Close Modal" class="modal__close-btn preview-modal__close-btn"></button>
+          <img class ="card__image modal__image" src ="" alt = "">
+          <p class="card__title modal__caption"></p>
+        </div>
+      </div>
+
+
+
+
 
     </div>
   </body>

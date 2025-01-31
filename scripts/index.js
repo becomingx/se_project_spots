@@ -105,12 +105,12 @@ function getCardElement(data) {
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
-
-}
-
+};
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
+
 };
+
 
 
 profileAddBtn.addEventListener("click", () => {
@@ -126,7 +126,6 @@ addModalCloseBtn.addEventListener("click", () => {
 editModalCloseBtn.addEventListener("click", () => {
   closeModal(editModal);
 });
-
 
 function handleEditModalFormSubmit(evt) {
   evt.preventDefault();

@@ -10,10 +10,14 @@
   align-items: center;
   justify-content: center;
   visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease-in, opacity 0.3s ease-out;
 }
 
 .modal_opened {
   visibility: visible;
+  opacity: 1;
+  transition-delay: 0;
 }
 
 .modal__container {
@@ -61,12 +65,12 @@
   background-repeat: no-repeat;
   background-size: cover;
   cursor: pointer;
+
 }
 
 .modal__close-btn:hover {
   opacity: 1;
   cursor: pointer;
-  transition-duration: 1s;
 }
 
 .preview-modal__close-btn {
@@ -76,11 +80,11 @@
   background-image: url("../images/previewModalClose.svg");
   top: 0;
   right: 0;
+
 }
 
 .preview__modal_container {
   position: relative;
-
   flex-direction: column;
   border-radius: 8px;
   padding-top: 8px;
