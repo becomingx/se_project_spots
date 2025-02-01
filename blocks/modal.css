@@ -160,11 +160,14 @@
     margin-top: 41px;
     margin-right: 8px;
     gap: 0px;
+    max-width: 288px;;
     border-radius: 4px;
   }
 
   .preview__modal_container {
     padding: 0px;
+    max-width: 288px;
+    margin: 0 auto;
 
   }
 
