@@ -165,6 +165,38 @@
 
   .preview__modal_container {
     padding: 0px;
+
+  }
+
+  .preview-modal__close-btn {
+    position: absolute;
+    margin: 0;
+    background-color: transparent;
+    background-image: url("../images/previewModalClose.svg");
+    bottom: 41px;
+    gap: 0px;
+    opacity: 0px;
+  }
+
+  .modal__caption: {
+    padding: 4px 8px 4px 8px;
+
+  }
+
+}
+
+@media screen and (max-width: 520px) {
+
+  .modal__image {
+    margin-top: 41px;
+    margin-right: 8px;
+    gap: 0px;
+    border-radius: 4px;
+  }
+
+  .preview__modal_container {
+    padding: 0px;
+
   }
 
   .preview-modal__close-btn {
