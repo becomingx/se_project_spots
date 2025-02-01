@@ -79,7 +79,6 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-color: transparent;
-  opacity: 40%;
   cursor: pointer;
   margin-left: 371px;
   margin-top: 10px;
@@ -92,7 +91,12 @@
   transition-duration: 1s;
 }
 
-@media screen and (max-width: 627px) {
+
+@media screen and (max-width: 600px) {
+  .card__delete-btn {
+    margin-left: 246px;
+  }
+
   .card__image {
     height: 288px;
     width: 288px;
