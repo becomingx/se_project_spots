@@ -86,18 +86,13 @@
 }
 
 .preview-modal__close-btn {
-  display: flex;
-  position: absolute;
-  background-color: transparent;
   background-image: url("../images/previewModalClose.svg");
-  top: 0;
-  right: 0;
+  top: 41px;
+  right: 264px;
 
 }
 
 .preview__modal_container {
-  position: relative;
-  flex-direction: column;
   border-radius: 8px;
   padding-top: 8px;
   padding-right: 40px;
@@ -139,6 +134,7 @@
 
 .modal__image {
   height: auto;
+  width: auto;
   max-height: 80vh;
   max-width: 80vw;
   border-radius: 8px;
@@ -164,8 +160,9 @@
 @media screen and (max-width: 320px) {
 
   .modal__image {
-    margin-top: 41px;
-    margin-right: 8px;
+    display: flex;
+    padding: 0;
+    justify-content: space-between;
     gap: 0px;
     width: 288px;
     border-radius: 4px;
@@ -181,9 +178,16 @@
     align-self: center;
   }
 
+  .preview-modal__close-btn {
+    justify-content: flex-end;
+    bottom: 426.57px;
+    margin: 0 auto;
+    margin-right: 0;
+
+  }
+
   .preview__modal_container {
-    padding: 0px;
-    width: 288px;
+    width: auto;
   }
 
   .modal__container {
@@ -201,23 +205,16 @@
     height: 27px;
   }
 
-  .preview-modal__close-btn {
-    position: absolute;
-    margin: 0;
-    background-color: transparent;
-    background-image: url("../images/previewModalClose.svg");
-    bottom: 41px;
-    gap: 0px;
-    opacity: 0px;
-  }
+
 }
 
 @media screen and (max-width: 520px) {
 
   .modal__image {
-    margin-top: 41px;
+    margin-top: 0;
     margin-right: 8px;
     gap: 0px;
+    width: 288px;
     max-width: 100%;
     border-radius: 4px;
   }
@@ -226,11 +223,16 @@
     width: 300px;
   }
 
+  .preview-modal__close-btn {
+    display: flex;
+    justify-items: space-between;
+    margin-bottom: 41px;
+    bottom: 426.57px;
+    left: 288px;
+  }
+
   .preview__modal_container {
     padding: 0px;
-    max-width: 100%;
-    margin: 0 auto;
-
   }
 
   .modal__title {
@@ -259,15 +261,7 @@
 
   }
 
-  .preview-modal__close-btn {
-    position: absolute;
-    margin: 0;
-    background-color: transparent;
-    background-image: url("../images/previewModalClose.svg");
-    bottom: 41px;
-    gap: 0px;
-    opacity: 0px;
-  }
+
 
 }
 
