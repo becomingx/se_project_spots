@@ -1,9 +1,9 @@
 .card__image {
+  display: block;
   border-radius: 8px;
   height: 413px;
   width: 100%;
   object-fit: cover;
-  display: block;
   margin: 0 auto;
   cursor: pointer;
 }
