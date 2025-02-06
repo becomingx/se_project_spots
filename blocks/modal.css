@@ -88,13 +88,11 @@
   display: flex;
   position: absolute;
   background-image: url("../images/previewModalClose.svg");
-  top: 0;
   margin-left: 32px;
   left: 90%;
 }
 
 .preview__modal_container {
-  position: relative;
   flex-direction: column;
   border-radius: 8px;
  /* padding-top: 8px;
@@ -137,10 +135,12 @@
 
 .modal__image {
   height: auto;
+  width: auto;
   max-height: 80vh;
   max-width: 80vw;
   border-radius: 8px;
   margin-bottom: 8px;
+  margin-top: 8px;
 }
 
 .modal__caption {
@@ -163,16 +163,16 @@
 @media screen and (max-width: 320px) {
 
   .modal__image {
-    width: auto;
-    max-width: 288px;
+    width: 288px;
     gap: 0px;
     border-radius: 4px;
-    margin-top: 41px;
+    max-width: 100%;
   }
 
   .preview__modal_container {
     padding-top: 8px;
     padding-right: 40px;
+    width: 288px;
   }
 
   .modal__title {
@@ -180,8 +180,10 @@
   }
 
   .preview-modal__close-btn {
-    margin-left: 15%;
-    left: 70%;
+    position: relative;
+    left: 75%;
+    bottom: 41px;
+
   }
 
   .modal__container {
@@ -202,19 +204,28 @@
 
 @media screen and (max-width: 720px) {
 
+  .modal__image {
+    width: 415px;
+    max-width: 100%;
+    gap: 0px;
+    border-radius: 4px;
+
+  }
+
   .modal__container {
     max-width: 100%;
     padding: 12px 12px 12px 12px;
     gap: 24px;
   }
 
-  /*.modal__image {
-    width: auto;
-    max-width: 100%;
-
-  }*/
+  .preview-modal__close-btn {
+    position: absolute;
+    top: 0;
+    left: 75%;
+  }
 
   .preview__modal_container {
+
     padding: 0;
   }
 
@@ -236,4 +247,5 @@
     align-self: center;
     width: 100%;
   }
+
 }
