@@ -88,6 +88,7 @@
   background-color: transparent;
   display: flex;
   left: 100%;
+  bottom: auto;
   background-image: url("../images/previewModalClose.svg");
 }
 
@@ -177,7 +178,8 @@
   }
 
   .preview-modal__close-btn {
-    left: 85%;
+    top: 0;
+    left: 90%;
   }
 
   .modal__title {
@@ -202,7 +204,6 @@
 
 @media screen and (max-width: 520px) {
   .modal__image {
-    width: 288px;
     gap: 0px;
     border-radius: 4px;
     max-width: 100%;
@@ -213,11 +214,11 @@
     padding-top: 8px;
     padding-right: 40px;
     width: 288px;
-    margin-top: 41px;
   }
 
   .preview-modal__close-btn {
-    left: 85%;
+    left: 90%;
+    top: 0;
   }
 
   .modal__title {
