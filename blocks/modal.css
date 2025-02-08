@@ -80,19 +80,18 @@
 }
 
 .preview-modal__close-btn {
+  position: absolute;
   background-color: transparent;
   display: flex;
-  position: absolute;
+  left: 100%;
   background-image: url("../images/previewModalClose.svg");
-  margin-left: 32px;
-  left: 90%;
 }
 
 .preview__modal_container {
+  position: relative;
+  margin: 0 auto;
   flex-direction: column;
   border-radius: 8px;
- /* padding-top: 8px;
-  padding-right: 40px;*/
 
 }
 
@@ -215,14 +214,8 @@
     gap: 24px;
   }
 
-  .preview-modal__close-btn {
-    position: absolute;
-    top: 0;
-    left: 75%;
-  }
 
   .preview__modal_container {
-
     padding: 0;
   }
 
