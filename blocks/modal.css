@@ -41,19 +41,15 @@
   flex-direction: column;
 }
 
-.modal__title {
-  width: 100%;
-  display: inline-block;
-  position: relative;
-  justify-content: space-between;
-  font-family: poppins, Arial, Helvetica, sans-serif;
 
+.modal__title {
+  font-family: poppins, Arial, Helvetica, sans-serif;
   font-weight: 500;
   color: rgba(33, 33, 33, 1);
   width: 630px;
   height: 32px;
   line-height: 32px;
-  font-size: 32px;
+  font-size: 32px;;
   margin: 0 0 32px;
   gap: 421px;
 }
@@ -181,6 +177,7 @@
 
   .preview-modal__close-btn {
     position: relative;
+    top: 32px;
     left: 75%;
     bottom: 41px;
 

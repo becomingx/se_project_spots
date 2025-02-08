@@ -6,6 +6,7 @@
   object-fit: cover;
   margin: 0 auto;
   cursor: pointer;
+
 }
 
 .card__title {
@@ -92,9 +93,65 @@
 }
 
 
+
+
+@media screen and (max-width: 320px) {
+  .card__delete-btn {
+    margin-left: 246px;
+  }
+
+  .card__image {
+    height: 288px;
+    width: 288px;
+  }
+
+  .card__content {
+    max-width: 288px;
+  }
+
+  .card__title {
+    font-size: 16px;
+    line-height: 16px;
+    max-width: 250px;
+  }
+
+  .card__like-btn {
+    width: 20px;
+    height: 18px;
+  }
+}
+
 @media screen and (max-width: 520px) {
   .card__delete-btn {
     margin-left: 246px;
+
+  }
+
+  .card__image {
+    height: 288px;
+    width: 288px;
+  }
+
+  .card__content {
+    max-width: 288px;
+  }
+
+  .card__title {
+    font-size: 16px;
+    line-height: 16px;
+    max-width: 250px;
+  }
+
+  .card__like-btn {
+    width: 20px;
+    height: 18px;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .card__delete-btn {
+    margin-left: 246px;
+
   }
 
   .card__image {
