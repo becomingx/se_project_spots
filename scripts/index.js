@@ -1,3 +1,4 @@
+
 const initialCards = [
   {
       name: "Val Thorens",
@@ -93,45 +94,43 @@ function getCardElement(data) {
 
   });
 
+
+
   return cardElement;
 };
 
-  function openModal(modal) {
-    modal.classList.add("modal_opened");
-  };
 
-  function closeModal(modal) {
-    modal.classList.remove("modal_opened");
-  };
-
-  function handleCloseAllModals {
-    const closeAllModals = document.querySelectorAll('.modal__close-btn');
-
-    closeAllModals.forEach((button) => {
-      const popup = button.closest('.modal');
-    });
-  };
-
-  function handleEditModalFormSubmit(evt) {
-    evt.preventDefault();
-    profileName.textContent = editModalNameInput.value;
-    profileDescription.textContent = editModalDescriptionInput.value;
-    closeModal(editModal);
-  };
-
-  function handleAddModalFormSubmit(evt) {
-
-    evt.preventDefault();
-    const addModalCardInput = addModal.querySelector("#add-card-link-input");
-    const addModalNameInput = addModal.querySelector("#add-card-name-input");
-    const inputValues = { name: addModalNameInput.value, link: addModalCardInput.value };
-    const addCardElement = getCardElement(inputValues);
-
-    cardsList.prepend(addCardElement);
-    closeModal(addModal);
-  };
+function openModal(modal) {
+  modal.classList.add("modal_opened");
+};
+function closeModal(modal) {
+  modal.classList.remove("modal_opened");
+};
 
 
+
+
+function handleEditModalFormSubmit(evt) {
+  evt.preventDefault();
+  profileName.textContent = editModalNameInput.value;
+  profileDescription.textContent = editModalDescriptionInput.value;
+  closeModal(editModal);
+};
+
+function handleAddModalFormSubmit(evt) {
+
+  evt.preventDefault();
+  const inputValues = { name: addModalNameInput.value, link: addModalCardInput.value };
+  const addCardElement = getCardElement(inputValues);
+
+  cardsList.prepend(addCardElement);
+  evt.target.reset();
+  closeModal(addModal);
+};
+
+previewModalCloseBtn.addEventListener("click", () => {
+  closeModal(previewModal);
+});
 profileAddBtn.addEventListener("click", () => {
   openModal(addModal);
 });
@@ -139,21 +138,14 @@ profileEditBtn.addEventListener("click", () => {
   openModal(editModal);
 });
 
-/*
 addModalCloseBtn.addEventListener("click", () => {
   closeModal(addModal);
 });
 editModalCloseBtn.addEventListener("click", () => {
   closeModal(editModal);
-});/*
+});
 
-button.addEventListener('click', () => {
-  closeAllModals(popup)});
 
-/*
-previewModalCloseBtn.addEventListener("click", () => {
-  closeModal(previewModal);
-});*/
 
 editModalFormElement.addEventListener("submit", handleEditModalFormSubmit);
 addModalFormElement.addEventListener("submit", handleAddModalFormSubmit);
