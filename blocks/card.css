@@ -106,7 +106,8 @@
   }
 
   .card__content {
-    max-width: auto;
+    max-width: 100%;
+    width: 288px;
   }
 
   .card__title {
@@ -139,5 +140,5 @@
   .card__content {
     max-width: auto;
   }
-  
+
 }
