@@ -4,7 +4,7 @@
   border-bottom: 1px rgb(33, 33, 33, 0.4) solid;
   justify-content: space-between;
   align-items: flex-end;
-  width: 1280px;
+  width: auto;
   max-width: 100%;
 }
 
