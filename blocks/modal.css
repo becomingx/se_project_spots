@@ -146,6 +146,7 @@
 
 .modal__image {
   height: auto;
+  width: auto;
   max-height: 80vh;
   max-width: 80vw;
   border-radius: 8px;
