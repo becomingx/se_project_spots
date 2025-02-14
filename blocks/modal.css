@@ -146,7 +146,6 @@
 
 .modal__image {
   height: auto;
-  width: auto;
   max-height: 80vh;
   max-width: 80vw;
   border-radius: 8px;
@@ -174,7 +173,8 @@
 @media screen and (max-width: 320px) {
 
   .modal__image {
-    max-width: 288px;
+    width: 288px;
+    max-width: 100%;
     gap: 0px;
     border-radius: 4px;
     margin-top: 41px;
@@ -186,10 +186,8 @@
   }
 
   .preview__modal_container {
-    padding-top: 8px;
-    padding-right: 40px;
-    width: 288px;
     margin-top: 41px;
+    width: 288px;
     max-width: 100%;
   }
 
@@ -281,21 +279,20 @@
   .modal__caption {
     height: 27px;
   }
-
 }
 
 @media screen and (max-width: 720px) {
 
   .modal__image {
-    width: 413px;
-    max-width: 100%;
     gap: 0px;
     border-radius: 4px;
+    margin-top: 41px;
 
   }
 
   .preview__modal_container {
     max-width: 100%;
+    margin-top: 41px;
   }
 
   .modal__container {
@@ -309,6 +306,9 @@
     align-self: center;
   }
 
-
+  .preview__modal_close-btn {
+    left: 90%;
+    top: 0;
+  }
 
 }
