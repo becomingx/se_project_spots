@@ -63,8 +63,9 @@
   position: absolute;
   border-style: none;
   border-radius: 0;
-  top: 32px;
-  left: 87.5%;
+
+  /*top: 32px;
+  left: 87.5%;*/
   width: 40px;
   height: 40px;
   opacity: 40%;
@@ -178,12 +179,6 @@
   color: #fff;
 }
 
-.modal__title-writing {
-  align-self: center;
-  padding: auto;
-  font-size: 20px;
-  line-height: 20px;
-}
 
 
 
@@ -208,6 +203,7 @@
 
   .modal__close-btn {
     left: 80vw;
+    top: 12px;
   }
 
   .modal__container {
@@ -290,9 +286,7 @@
     font-size: 20px;
     gap: 0px;
     width: 80vw;
-    height: 80vh;
     border-radius: 4px;
-    margin-top: 41px;
 
   }
 
