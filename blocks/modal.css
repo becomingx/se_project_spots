@@ -197,14 +197,17 @@
     margin-top: 41px;
   }
 
-  .preview__modal_close-btn {
-    top: 0;
-  }
 
   .modal__close-btn {
     left: 80vw;
     top: 12px;
+
   }
+
+  .preview__modal_close-btn {
+    top: 0;
+  }
+
 
   .modal__container {
     width: 300px;
