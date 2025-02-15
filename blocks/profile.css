@@ -28,7 +28,7 @@
   font-family: poppins, Arial, Helvetica, sans-serif;
   font-weight: 500;
   font-size: 32px;
-  line-height: 1;
+  line-height: 32px;
   color: #212121;
   margin: 0 0 12px;
   text-overflow: ellipsis;
@@ -37,6 +37,7 @@
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   max-width: 420px;
+  height: 32px;
 }
 
 .profile__description {
@@ -86,7 +87,7 @@
   line-height: 1.2;
   color: #fcf5e5;
   cursor: pointer;
-  width: 149px;
+  width: 157px;
   height: 52px;
   background-color: #212121;
   border: none;
@@ -94,6 +95,7 @@
   border-radius: 8px;
   text-align: center;
   gap: 8px;
+  padding: 18px 32px 18px 32px;
 }
 
 .profile__add-btn:hover {
@@ -201,12 +203,13 @@
     padding-top: 20px;
   }
 
+  /*
   .profile__name {
     margin-bottom: 6px;
     font-size: 20px;
     text-align: center;
     max-width: 413px;
-  }
+  }*/
 
   .profile__column {
     text-align:center;
