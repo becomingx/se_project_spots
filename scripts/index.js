@@ -55,15 +55,9 @@ const addModalCardInput = addModal.querySelector("#add-card-link-input");
 const addModalNameInput = addModal.querySelector("#add-card-name-input");
 
 const previewModal = document.querySelector("#preview-modal");
-<<<<<<< HEAD
 const previewModalImageElement = previewModal.querySelector(".modal__image");
-const previewModalCaption = previewModal.querySelector(".modal__caption");
-const previewModalCloseBtn = previewModal.querySelector(".modal__close-btn--preview");
-=======
-const previewModalImageElement = previewModal.querySelector(".card__image");
 const previewModalCaption = previewModal.querySelector(".card__title");
 const previewModalCloseBtn = previewModal.querySelector(".preview__modal_close-btn");
->>>>>>> parent of b88a3da (Commit 4  project 5)
 
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
@@ -100,8 +94,6 @@ function getCardElement(data) {
 
   });
 
-
-
   return cardElement;
 };
 
@@ -112,9 +104,6 @@ function openModal(modal) {
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
 };
-
-
-
 
 function handleEditModalFormSubmit(evt) {
   evt.preventDefault();
@@ -134,14 +123,19 @@ function handleAddModalFormSubmit(evt) {
   closeModal(addModal);
 };
 
+
 previewModalCloseBtn.addEventListener("click", () => {
   closeModal(previewModal);
 });
+
 profileAddBtn.addEventListener("click", () => {
   openModal(addModal);
 });
+
 profileEditBtn.addEventListener("click", () => {
   openModal(editModal);
+  editModalNameInput.placeholder = profileName.textContent;
+  editModalDescriptionInput.placeholder = profileDescription.textContent;
 });
 
 addModalCloseBtn.addEventListener("click", () => {
@@ -150,7 +144,6 @@ addModalCloseBtn.addEventListener("click", () => {
 editModalCloseBtn.addEventListener("click", () => {
   closeModal(editModal);
 });
-
 
 
 editModalFormElement.addEventListener("submit", handleEditModalFormSubmit);
