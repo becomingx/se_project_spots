@@ -32,7 +32,7 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  margin-top: 8px;
+  margin-top: 12px;
 }
 
 .card__like-btn {
@@ -121,6 +121,9 @@
     height: 18px;
   }
 }
+
+
+
 
 @media screen and (max-width: 720px) {
   .card__title {
