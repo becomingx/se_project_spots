@@ -37,6 +37,8 @@
   display: flex;
   flex-direction: column;
   margin: 0 auto;
+  flex-wrap: wrap;
+  align-content:center;
 }
 
 .modal__form {
@@ -47,7 +49,6 @@
 
 
 .modal__title {
-  position: relative;
   display: flex;
   justify-content: space-between;
   max-width: 630px;
@@ -70,8 +71,8 @@
   border-radius: 0;
   width: 40px;
   height: 40px;
-  top: 12px;
-  right: 12px;
+  top: 30px;
+  right: 55px;
   opacity: 40%;
   background-image: url(../images/modalCloseButton.svg);
   background-color: transparent;
@@ -93,10 +94,8 @@
   display: flex;
   position: absolute;
   left: 64%;
-  top: 32px;
   border-style: none;
   color: #fff;
-  margin-top: 32px;
   background-image: url("../images/previewModalClose.svg");
   opacity: 40%;
   background-color: transparent;
@@ -184,7 +183,26 @@
   color: #fff;
 }
 
+@media screen and (max-width: 720px) {
 
+  .modal__image {
+    width: 413px;
+    max-width: 100%;
+    gap: 0px;
+    border-radius: 4px;
+  }
+
+  .modal__container {
+    max-width: 95%;
+    box-sizing: border-box;
+    position: relative;
+    border-radius: 8px;
+  }
+
+  .modal__title-writing {
+    align-self: center;
+  }
+}
 
 @media screen and (max-width: 320px) {
   .modal__image {
@@ -195,17 +213,23 @@
     margin-top: 41px;
   }
 
+  .modal__container--preview {
+    max-width: 100%;
+    gap: 0px;
+    border-radius: 4px;
+    margin-top: 41px;
+  }
+
   .preview__modal_close-btn {
-    left: 90%;
+    left: 85%;
   }
 
   .modal__container {
     width: 300px;
+    height: 336px;
     padding: 12px;
     gap: 24px;
     border-radius: 8px;
-    opacity: 0px;
-    max-width: 100%;
   }
 
   .modal__input {
@@ -222,13 +246,12 @@
   }
 
   .modal__submit-btn {
-    width: auto;
+    width: 276px;
     max-width: 100%;
+    height: 52px;
     padding: 18px 32px 18px 32px;
     gap: 8px;
     border-radius: 8px;
-    opacity: 0px;
-
   }
 
   .modal__title-writing {
@@ -251,6 +274,8 @@
     height: 27px;
   }
 }
+
+/*
 
 @media screen and (max-width: 520px) {
   .modal__image {
@@ -280,25 +305,5 @@
     border-radius: 4px;
 
   }
-}
+} */
 
-@media screen and (max-width: 720px) {
-
-  .modal__image {
-    width: 413px;
-    max-width: 100%;
-    gap: 0px;
-    border-radius: 4px;
-  }
-
-  .modal__container {
-    max-width: 95%;
-    box-sizing: border-box;
-    position: relative;
-    border-radius: 8px;
-  }
-
-  .modal__title-writing {
-    align-self: center;
-  }
-}
