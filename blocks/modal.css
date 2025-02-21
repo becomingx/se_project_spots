@@ -9,7 +9,6 @@
   bottom: 0;
   right: 0;
   background-color: rgba(0, 0, 0, 0.5);
-
   opacity: 0;
   transition: visibility 0.3s ease-in, opacity 0.3s ease-out;
 }
@@ -31,6 +30,12 @@
   width: 730px;
   height: 413px;
   border-radius: 8px;
+  margin: 0 auto;
+}
+
+.modal__container--preview {
+  display: flex;
+  flex-direction: column;
   margin: 0 auto;
 }
 
@@ -68,7 +73,6 @@
   top: 12px;
   right: 12px;
   opacity: 40%;
-  color: #fff;
   background-image: url(../images/modalCloseButton.svg);
   background-color: transparent;
   background-position: center;
@@ -76,7 +80,6 @@
   background-size: cover;
   cursor: pointer;
   transition: visibility 0.3s ease-in, opacity 0.3s ease-out;
-
 }
 
 .modal__close-btn:hover {
@@ -84,32 +87,37 @@
   background-color: transparent;
   cursor: pointer;
   transition: visibility 0.3s ease-in, opacity 0.3s ease-out;
-
 }
 
-.preview__modal_close-btn {
-  background-color: transparent;
+.modal__close-btn--preview {
   display: flex;
+  position: absolute;
+  left: 62%;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-style: none;
+  color: #fff;
+  margin-top: 32px;
   background-image: url("../images/previewModalClose.svg");
   opacity: 40%;
-  left: 100%;
-  top: 0;
-  transition: visibility 0.3s ease-in, opacity 0.3s ease-out;
-}
-
-.preview__modal_close-btn:hover {
-  opacity: 1;
   background-color: transparent;
+  border-radius: 0;
+  width: 40px;
+  height: 40px;
+  opacity: 40%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   cursor: pointer;
   transition: visibility 0.3s ease-in, opacity 0.3s ease-out;
 }
 
-.preview__modal_container {
-  position: relative;
-  margin: 0 auto;
-  flex-direction: column;
-  border-radius: 8px;
-  max-width: 100%;
+.modal__close-btn--preview:hover {
+  opacity: 1;
+  background-color: transparent;
+  cursor: pointer;
+  transition: visibility 0.3s ease-in, opacity 0.3s ease-out;
 }
 
 .modal__input {
@@ -131,7 +139,6 @@
   text-align: left;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
-
 }
 
 .modal__label-writing {
@@ -154,6 +161,8 @@
 }
 
 .modal__image {
+  display: flex;
+  position: relative;
   height: auto;
   width: auto;
   max-height: 80vh;
@@ -186,17 +195,10 @@
     gap: 0px;
     border-radius: 4px;
     margin-top: 41px;
-
-  }
-
-  .preview__modal_container {
-    width: 288px;
-    margin-top: 41px;
   }
 
   .preview__modal_close-btn {
     left: 90%;
-
   }
 
   .modal__container {
@@ -245,7 +247,6 @@
     text-align: left;
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
-
   }
 
   .modal__caption {

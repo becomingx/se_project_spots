@@ -94,6 +94,23 @@
 
 
 
+@media screen and (max-width: 720px) {
+  .card__title {
+    font-size: 16px;
+    line-height: 16px;
+    max-width: 250px;
+  }
+
+  .card__like-btn {
+    width: 20px;
+    height: 18px;
+  }
+
+  .card__content {
+    max-width: auto;
+  }
+
+}
 
 @media screen and (max-width: 320px) {
   .card__delete-btn {
@@ -124,21 +141,3 @@
 
 
 
-
-@media screen and (max-width: 720px) {
-  .card__title {
-    font-size: 16px;
-    line-height: 16px;
-    max-width: 250px;
-  }
-
-  .card__like-btn {
-    width: 20px;
-    height: 18px;
-  }
-
-  .card__content {
-    max-width: auto;
-  }
-
-}
