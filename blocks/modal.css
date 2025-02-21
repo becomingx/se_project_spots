@@ -92,10 +92,8 @@
 .modal__close-btn--preview {
   display: flex;
   position: absolute;
-  left: 62%;
-  right: 0;
-  top: 0;
-  bottom: 0;
+  left: 64%;
+  top: 32px;
   border-style: none;
   color: #fff;
   margin-top: 32px;
