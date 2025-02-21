@@ -14,7 +14,7 @@
   display:flex;
   justify-content: space-between;
   width: auto;
-  margin: 0 auto;
+  margin: 0;
   max-width: 100%;
   max-height: 210px;
   gap: 12px;
@@ -37,13 +37,12 @@
   }
 
 .profile__name {
-  padding-bottom: 32px;
   font-family: poppins, Arial, Helvetica, sans-serif;
   font-weight: 500;
   font-size: 32px;
   line-height: 32px;
   color: #212121;
-  margin: 0 auto;
+  margin: 0;
   text-overflow: ellipsis;
   overflow: hidden;
   display: -webkit-box;
@@ -77,9 +76,10 @@
   font-family: poppins, Arial, Helvetica, sans-serif;
   font-weight: 500;
   font-size: 16px;
-  line-height: 1.2;
+  line-height: 16px;
   color: #212121;
   margin-top: auto;
+  padding: 0;
   gap: 8px;
   opacity: 70%;
   border: none;
