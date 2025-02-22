@@ -1,3 +1,10 @@
+.card {
+  display: flex; 
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .card__image {
   display: block;
   border-radius: 8px;
@@ -23,13 +30,9 @@
 
 }
 
-.card__content {
-  max-width: 413px;
-  margin: 12px 0 0;
-}
-
 .card__footer {
-  width: 100%;
+  width: auto;
+  height: 24px;
   display: flex;
   justify-content: space-between;
   margin-top: 12px;
@@ -69,7 +72,8 @@
 
 
 .card__delete-btn {
-  position: absolute;
+  position: relative;
+  margin: 0;
   background-image: url(../images/deleteDefault.svg);
   height: 32px;
   width: 32px;
@@ -81,8 +85,8 @@
   background-repeat: no-repeat;
   background-color: transparent;
   cursor: pointer;
-  margin-left: 371px;
-  margin-top: 10px;
+  left: 371px;
+  top: 40px;
 }
 
 .card__delete-btn:hover {
@@ -95,10 +99,23 @@
 
 
 @media screen and (max-width: 720px) {
+  .card__delete-btn {
+    left: 246px;
+  }
+
+  .card {
+    height: 288px;
+    width: 288px;
+  }
+
+  .card__image {
+    height: 288px;
+    width: 288px;
+  }
+
   .card__title {
     font-size: 16px;
     line-height: 16px;
-    max-width: 250px;
   }
 
   .card__like-btn {
@@ -106,13 +123,13 @@
     height: 18px;
   }
 
-  .card__content {
-    max-width: auto;
+  .card__footer {
+    width: 288px;
+    height: 18px;
   }
-
 }
 
-@media screen and (max-width: 320px) {
+/*@media screen and (max-width: 320px) {
   .card__delete-btn {
     margin-left: 246px;
   }
