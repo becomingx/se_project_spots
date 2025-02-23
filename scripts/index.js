@@ -154,3 +154,9 @@ initialCards.forEach((item) => {
   const cardElement = getCardElement(item);
   cardsList.append(cardElement);
 });
+
+document.querySelectorAll('*').forEach(elem => {
+  if (elem.offsetWidth > document.documentElement.offsetWidth) {
+    console.log('Overflowing element:', elem);
+  }
+});
