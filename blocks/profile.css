@@ -5,6 +5,7 @@
   align-items: flex-end;
   width: 1280px;
   max-width: 100%;
+  gap: 20px;
   padding-top: 20px;
   padding-bottom: 20px;
 }
@@ -14,6 +15,7 @@
   justify-content: space-between;
   margin: 0;
   gap: 12px;
+  width: 190px;
 }
 
 .profile__avatar {
@@ -27,7 +29,16 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+  height: 100%;
   }
+
+.profile__btns {
+  display: flex;
+  width: 1090px;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 20px;
+}
 
 .profile__name {
   font-family: poppins, Arial, Helvetica, sans-serif;
@@ -62,18 +73,20 @@
 
 .profile__edit-btn {
   display: flex;
+  flex-wrap: wrap;
+  align-self: flex-end;
   font-family: poppins, Arial, Helvetica, sans-serif;
   font-weight: 500;
   font-size: 16px;
   line-height: 16px;
-  color: #212121;
-  margin-top: auto;
-  padding: 0;
   gap: 8px;
+  height: 100%;
+  border-radius: 90px;
+  color: #212121;
+  padding: 0;
   opacity: 70%;
   border: none;
   background-color: transparent;
-  position: relative;
   cursor: pointer;
 }
 
@@ -93,12 +106,12 @@
   cursor: pointer;
   width: 157px;
   height: 52px;
+  gap: 8px;
   background-color: #212121;
   border: none;
   box-sizing: border-box;
   border-radius: 8px;
   text-align: center;
-  gap: 8px;
   padding: 18px 32px 18px 32px;
 }
 
@@ -123,30 +136,26 @@
 
 @media screen and (max-width: 720px) {
   .profile__avatar {
-    margin: 0 0 12px;
     height: 80px;
     width: 80px;
-
   }
 
   .profile {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding-top: 20px;
     width: 413px;
     height: 274px;
-    gap: 32px;
     padding-bottom: 20px;
     border-bottom-width: 1px;
+    gap: 32px;
 
   }
 
   .profile__column {
     text-align:center;
     align-items: center;
-    margin: 0 0 20px;
-    margin-right: 0;
+    gap: 6px;
   }
 
   .profile__add-btn {
@@ -158,6 +167,7 @@
     max-width: 100%;
     flex-direction: column;
     align-items: center;
+    gap: 12px;
   }
 }
 
@@ -165,7 +175,6 @@
   .profile__avatar {
     height: 80px;
     width: 80px;
-    margin-top: 12px;
   }
 
   .profile {
@@ -173,12 +182,9 @@
     width: 288px;
     align-items: center;
     text-align: center;
-    padding: 0 0 20px 0;
-    gap: 32px;
   }
 
   .profile__name {
-    gap: 6px;
     font-size: 20px;
     text-align: center;
     max-width: 288px;
@@ -189,7 +195,6 @@
   .profile__column {
     text-align:center;
     align-items: center;
-    gap: 12px;
     width: 288px;
   }
 
@@ -199,13 +204,11 @@
     max-width: 288px;
     line-height: 16px;
     font-size: 16px;
-    gap: 6px;
   }
 
   .profile__add-btn {
     max-width: 288px;
     width: 100%;
-
   }
 
   .profile__section {
@@ -213,17 +216,6 @@
     align-items: center;
     width: 288px;
   }
-
-  .profile__add-btn {
-    max-width: 288px;
-    width: 100%;
-    gap: 8px;
-  }
-
-  .profile__edit-btn {
-    text-align: left;
-  }
-
 }
 
 
