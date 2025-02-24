@@ -1,4 +1,3 @@
-
 const initialCards = [
   {
       name: "Val Thorens",
@@ -55,9 +54,9 @@ const addModalCardInput = addModal.querySelector("#add-card-link-input");
 const addModalNameInput = addModal.querySelector("#add-card-name-input");
 
 const previewModal = document.querySelector("#preview-modal");
-const previewModalImageElement = previewModal.querySelector(".modal__image");
-const previewModalCaption = previewModal.querySelector(".modal__caption");
-const previewModalCloseBtn = previewModal.querySelector(".modal__close-btn--preview");
+const previewModalImageElement = previewModal.querySelector(".card__image");
+const previewModalCaption = previewModal.querySelector(".card__title");
+const previewModalCloseBtn = previewModal.querySelector(".preview-modal__close-btn");
 
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
@@ -94,6 +93,12 @@ function getCardElement(data) {
 
   });
 
+  previewModalCloseBtn.addEventListener("click", () => {
+    editModalNameInput.placeholder = profileName.textContent;
+    editModalDescriptionInput.placeholder = profileDescription.textContent;
+    closeModal(previewModal);
+  });
+
   return cardElement;
 };
 
@@ -103,7 +108,24 @@ function openModal(modal) {
 };
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
+
 };
+
+
+
+profileAddBtn.addEventListener("click", () => {
+  openModal(addModal);
+});
+profileEditBtn.addEventListener("click", () => {
+  openModal(editModal);
+});
+
+addModalCloseBtn.addEventListener("click", () => {
+  closeModal(addModal);
+});
+editModalCloseBtn.addEventListener("click", () => {
+  closeModal(editModal);
+});
 
 function handleEditModalFormSubmit(evt) {
   evt.preventDefault();
@@ -115,35 +137,14 @@ function handleEditModalFormSubmit(evt) {
 function handleAddModalFormSubmit(evt) {
 
   evt.preventDefault();
+  const addModalCardInput = addModal.querySelector("#add-card-link-input");
+  const addModalNameInput = addModal.querySelector("#add-card-name-input");
   const inputValues = { name: addModalNameInput.value, link: addModalCardInput.value };
   const addCardElement = getCardElement(inputValues);
 
-  cardsList.prepend(addCardElement);
-  evt.target.reset();
+  cardsList.append(addCardElement);
   closeModal(addModal);
 };
-
-
-previewModalCloseBtn.addEventListener("click", () => {
-  closeModal(previewModal);
-});
-
-profileAddBtn.addEventListener("click", () => {
-  openModal(addModal);
-});
-
-profileEditBtn.addEventListener("click", () => {
-  openModal(editModal);
-  editModalNameInput.placeholder = profileName.textContent;
-  editModalDescriptionInput.placeholder = profileDescription.textContent;
-});
-
-addModalCloseBtn.addEventListener("click", () => {
-  closeModal(addModal);
-});
-editModalCloseBtn.addEventListener("click", () => {
-  closeModal(editModal);
-});
 
 
 editModalFormElement.addEventListener("submit", handleEditModalFormSubmit);
@@ -153,10 +154,4 @@ addModalFormElement.addEventListener("submit", handleAddModalFormSubmit);
 initialCards.forEach((item) => {
   const cardElement = getCardElement(item);
   cardsList.append(cardElement);
-});
-
-document.querySelectorAll('*').forEach(elem => {
-  if (elem.offsetWidth > document.documentElement.offsetWidth) {
-    console.log('Overflowing element:', elem);
-  }
 });

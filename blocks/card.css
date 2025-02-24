@@ -3,11 +3,9 @@
   position: relative;
   flex-direction: column;
   justify-content: center;
-<<<<<<< HEAD
   height: 445px;
   width: 413px;
-=======
->>>>>>> parent of 5b6c0e3 (commit project 5)
+
 }
 
 .card__image {
@@ -16,11 +14,7 @@
   height: 413px;
   width: 413px;
   object-fit: cover;
-  margin: 0 auto;
-  margin: 0 auto;
   cursor: pointer;
-
-
 }
 
 .card__title {
@@ -29,13 +23,11 @@
   font-size: 20px;
   line-height: 24px;
   max-width: 353px;
-  color: #212121;
+  color: rgba(33, 33, 33, 1);
   margin: 0;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-
-
 }
 
 .card__footer {
@@ -78,8 +70,6 @@
   transition-duration: 1s;
 }
 
-
-
 .card__delete-btn {
   position: relative;
   margin: 0;
@@ -106,17 +96,13 @@
 }
 
 
-
-@media screen and (max-width: 720px) {
-
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 320px) {
   .card__delete-btn {
     left: 246px;
   }
 
   .card {
-    height: 288px;
-    height: 288px;
+    height: 313px;
     width: 288px;
   }
 
@@ -140,63 +126,3 @@
     height: 18px;
   }
 }
-
-/*@media screen and (max-width: 320px) {
-  .card__delete-btn {
-    margin-left: 246px;
-  }
-
-  .card__image {
-    height: 288px;
-    width: 288px;
-  }
-
-  .card__content {
-    max-width: 100%;
-    width: 288px;
-  }
-
-  .card__title {
-    font-size: 16px;
-    line-height: 16px;
-    max-width: 250px;
-  }
-
-  .card__like-btn {
-    width: 20px;
-    height: 18px;
-  }
-}
-
-
-
-
-/*@media screen and (max-width: 320px) {
-  .card__delete-btn {
-    margin-left: 246px;
-  }
-
-  .card__image {
-    height: 288px;
-    width: 288px;
-  }
-
-  .card__content {
-    max-width: 100%;
-    width: 288px;
-  }
-
-  .card__title {
-    font-size: 16px;
-    line-height: 16px;
-    max-width: 250px;
-  }
-
-  .card__like-btn {
-    width: 20px;
-    height: 18px;
-  }
-}
-
-
-
