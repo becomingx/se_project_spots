@@ -162,6 +162,9 @@
 
 .modal__image {
   display: flex;
+  position: relative;
+  height: auto;
+  width: auto;
   max-height: 80vh;
   max-width: 80vw;
   border-radius: 8px;
@@ -185,6 +188,7 @@
 
 
 @media screen and (max-width: 720px) {
+
   .modal__image {
     max-width: 413px;
   }
@@ -235,22 +239,6 @@
 
   .modal__title-writing {
     align-self: center;
-    padding: auto;
-    font-size: 20px;
-    line-height: 20px;
-  }
-
-  .modal__label-writing {
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 17.6px;
-    text-align: left;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
-  }
-
-  .modal__caption {
-    height: 27px;
   }
 }
 

@@ -13,7 +13,9 @@
   height: 413px;
   width: 413px;
   object-fit: cover;
+  margin: 0 auto;
   cursor: pointer;
+
 }
 
 .card__title {
@@ -27,6 +29,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+
 }
 
 .card__footer {
@@ -69,6 +72,7 @@
   transition-duration: 1s;
 }
 
+
 .card__delete-btn {
   position: relative;
   margin: 0;
@@ -95,13 +99,14 @@
 }
 
 
-@media screen and (max-width: 320px) {
+
+@media screen and (max-width: 720px) {
   .card__delete-btn {
     left: 246px;
   }
 
   .card {
-    height: 313px;
+    height: 288px;
     width: 288px;
   }
 
@@ -125,3 +130,33 @@
     height: 18px;
   }
 }
+
+/*@media screen and (max-width: 320px) {
+  .card__delete-btn {
+    margin-left: 246px;
+  }
+
+  .card__image {
+    height: 288px;
+    width: 288px;
+  }
+
+  .card__content {
+    max-width: 100%;
+    width: 288px;
+  }
+
+  .card__title {
+    font-size: 16px;
+    line-height: 16px;
+    max-width: 250px;
+  }
+
+  .card__like-btn {
+    width: 20px;
+    height: 18px;
+  }
+}
+
+
+

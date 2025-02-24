@@ -1,5 +1,6 @@
 .profile {
   display: flex;
+  padding: 34px 0 20px;
   border-bottom: 1px rgb(33, 33, 33, 0.4) solid;
   justify-content: space-between;
   align-items: flex-end;
@@ -13,6 +14,7 @@
 .profile__section {
   display:flex;
   justify-content: space-between;
+  width: auto;
   margin: 0;
   gap: 20px;
   width: 190px;
@@ -28,6 +30,9 @@
 .profile__column {
   display: flex;
   flex-direction: column;
+  width: auto;
+  max-width: 100%;
+  max-height: auto;
   gap: 12px;
   height: 100%;
   }
@@ -52,6 +57,8 @@
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+  width: auto;
+  max-width: 100%;
 }
 
 .profile__description {
@@ -67,7 +74,9 @@
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
-  width: 420px;
+  max-width: 420px;
+  width: auto;
+  height: auto;
   margin: 0;
 }
 
@@ -136,6 +145,7 @@
 
 
 @media screen and (max-width: 720px) {
+
   .profile__avatar {
     height: 80px;
     width: 80px;
@@ -143,6 +153,7 @@
 
   .profile {
     flex-direction: column;
+    max-width: 413px;
     align-items: center;
     text-align: center;
     width: 413px;
