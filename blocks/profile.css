@@ -113,7 +113,7 @@
   box-sizing: border-box;
   border-radius: 8px;
   text-align: center;
-  padding: 18px 32px 18px 32px;
+  padding: 18px 32px;
 }
 
 .profile__add-btn:hover {
