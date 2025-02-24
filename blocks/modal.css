@@ -185,8 +185,30 @@
 
 
 @media screen and (max-width: 720px) {
+  .modal__image {
+    max-width: 413px;
+
+  }
+
+  .modal__container {
+    width: 300px;
+    height: auto;
+    padding: 12px;
+    gap: 24px;
+    border-radius: 8px;
+  }
+
   .modal__title-writing {
     align-self: center;
+  }
+
+  .modal__close-btn--preview {
+    top: 0;
+    left: 0;
+  }
+
+  .modal__container--preview {
+    width: 100%;
   }
 
   .modal__input {
@@ -233,22 +255,18 @@
 }
 
 @media screen and (max-width: 320px) {
+  .modal__close-btn--preview {
+    top: 0;
+    left: 0;
+  }
+
   .modal__image {
     max-width: 288px;
-    gap: 0px;
     border-radius: 4px;
   }
 
   .modal__container--preview {
     width: 100%;
-    gap: 0px;
-    border-radius: 4px;
-    margin-top: 41px;
-  }
-
-  .preview__modal_close-btn {
-    top: 0;
-    left: 0;
   }
 
   .modal__container {
