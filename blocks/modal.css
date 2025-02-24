@@ -165,6 +165,9 @@
   position: relative;
   height: auto;
   width: auto;
+  position: relative;
+  height: auto;
+  width: auto;
   max-height: 80vh;
   max-width: 80vw;
   border-radius: 8px;
@@ -188,6 +191,7 @@
 
 
 @media screen and (max-width: 720px) {
+
 
   .modal__image {
     max-width: 413px;
