@@ -53,13 +53,13 @@
   display: flex;
   justify-content: space-between;
   max-width: 630px;
+  height: 40px;
   text-align: left;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
   font-family: poppins, Arial, Helvetica, sans-serif;
   font-weight: 500;
   color: rgba(33, 33, 33, 1);
-  height: 40px;
   line-height: 32px;
   font-size: 32px;
   margin: 0 0 32px;
@@ -216,12 +216,21 @@
     margin-top: 41px;
   }
 
+  .modal__close-btn {
+    top: 0;
+    right: 0;
+
+  }
+
   .modal__container {
-    width: 300px;
-    height: 336px;
-    padding: 12px;
     gap: 24px;
-    border-radius: 8px;
+    padding: 12px;
+    width: 300px;
+    height: auto;
+  }
+
+  .modal__form {
+    width: 276px;
   }
 
   .modal__input {
@@ -246,11 +255,11 @@
     border-radius: 8px;
   }
 
-  .modal__title-writing {
-    align-self: center;
-    padding: auto;
+  .modal__title {
     font-size: 20px;
     line-height: 20px;
+    width: 276px;
+    height: 40px;
   }
 
   .modal__label-writing {
