@@ -4,13 +4,11 @@
   align-items: flex-end;
   width: 1280px;
   max-width: 100%;
-  padding-bottom: 20px;
 }
 
 .profile__section {
   display:flex;
   padding-top: 20px;
-  margin: 0;
   gap: 12px;
 }
 

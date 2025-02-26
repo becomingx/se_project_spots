@@ -1,17 +1,13 @@
-.cards {
-  border-top: 1px rgb(33, 33, 33, 0.4) solid;
-  border-bottom: 1px rgb(33, 33, 33, 0.4) solid;
-
-}
-
 .cards__list {
   list-style-type: none;
-  margin: 0 auto;
   padding: 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, 413px);
+  width: auto;
   gap: 0 20px;
   justify-content: center;
+  border-top: 1px rgb(33, 33, 33, 0.4) solid;
+  border-bottom: 1px rgb(33, 33, 33, 0.4) solid;
 }
 
 @media screen and (max-width: 720px) {
@@ -20,5 +16,5 @@
     margin: 0 auto;
     grid-template-columns: repeat(auto-fit, 288px);
     justify-content: center;
-  }
+    width: 288px;
 }
