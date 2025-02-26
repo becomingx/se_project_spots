@@ -184,7 +184,7 @@
 
 @media screen and (max-width: 720px) {
   
-  .preview__modal_close-btn {
+  .modal__close-btn--preview {
     right: 40px;
     left: 90%;
   }
@@ -203,8 +203,6 @@
     border-radius: 4px;
     margin-top: 41px;
   }
-
-
 
   .modal__container {
     width: 300px;
