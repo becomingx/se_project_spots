@@ -5,7 +5,7 @@
   justify-content: center;
   height: 445px;
   width: 413px;
-
+  padding-bottom: 40px;
 }
 
 .card__image {
@@ -22,7 +22,7 @@
   font-weight: 500;
   font-size: 20px;
   line-height: 24px;
-  max-width: 353px;
+  letter-spacing: 0%;
   color: rgba(33, 33, 33, 1);
   margin: 0;
   text-overflow: ellipsis;
@@ -96,7 +96,7 @@
 }
 
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 720px) {
   .card__delete-btn {
     left: 246px;
   }

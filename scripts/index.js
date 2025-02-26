@@ -107,17 +107,16 @@ function closeModal(modal) {
 
 function handleEditModalFormSubmit(evt) {
   evt.preventDefault();
+  closeModal(editModal);
+
   profileName.textContent = editModalNameInput.value;
   profileDescription.textContent = editModalDescriptionInput.value;
-  closeModal(editModal);
 };
 
 function handleAddModalFormSubmit(evt) {
-
   evt.preventDefault();
   const inputValues = { name: addModalNameInput.value, link: addModalCardInput.value };
   const addCardElement = getCardElement(inputValues);
-
   cardsList.prepend(addCardElement);
   evt.target.reset();
   closeModal(addModal);
@@ -129,13 +128,14 @@ previewModalCloseBtn.addEventListener("click", () => {
 });
 
 profileAddBtn.addEventListener("click", () => {
-  openModal(addModal);
+  openModal(addModal); 
 });
 
 profileEditBtn.addEventListener("click", () => {
   openModal(editModal);
-  editModalNameInput.placeholder = profileName.textContent;
-  editModalDescriptionInput.placeholder = profileDescription.textContent;
+  editModalNameInput.value = profileName.textContent;
+  editModalDescriptionInput.value = profileDescription.textContent;
+
 });
 
 addModalCloseBtn.addEventListener("click", () => {
