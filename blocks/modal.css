@@ -13,7 +13,7 @@
   transition: visibility 0.3s ease-in, opacity 0.3s ease-out;
 }
 
-.modal__error {
+.modal__input_error {
   display:block;
   color: #FF0000B2;
   margin-bottom: 32px;
@@ -29,14 +29,14 @@
 }
 
 /*
-.modal__input .modal__error {
+.modal__input .modal__input_error {
   border: 1px solid;
   border-color: #FF000099;
   opacity: 60%;
   /*inner alignment
 }
 
-.modal__form .modal__error {
+.modal__form .modal__input_error {
   width: 630px;
   height: auto;
   gap: 32px;
@@ -82,7 +82,7 @@
   display: flex;
   flex-direction: column;
   width: 630px;
-  height: auto;
+  height: 272px;
   gap: 32px;
 }
 

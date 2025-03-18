@@ -1,3 +1,15 @@
+/*Modal UX improvements
+
+Closing the modal by clicking on the overlay
+Code a feature that allows the users to close the modal 
+by clicking on the overlay, i.e. anywhere outside the modal’s 
+borders.
+
+One way to manage this would be to select all the modal’s with 
+querySelectorAll and loop for the resulting node list with the 
+.forEach() method. In the loop, set a listener that closes 
+the modal. You’ll need to check that the event target’s class 
+list contains an appropriate class before closing the modal.*/
 
 const initialCards = [
   {
@@ -56,7 +68,7 @@ const addModalNameInput = addModal.querySelector("#add-card-name-input");
 
 const previewModal = document.querySelector("#preview-modal");
 const previewModalImageElement = previewModal.querySelector(".modal__image");
-const previewModalCaption = previewModal.querySelector(".modal__caption");
+const previewModalCaption = previewModal.querySelector(".modal__preview-caption");
 const previewModalCloseBtn = previewModal.querySelector(".modal__close-btn--preview");
 
 const cardTemplate = document.querySelector("#card-template");
