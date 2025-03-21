@@ -13,7 +13,7 @@
   transition: visibility 0.3s ease-in, opacity 0.3s ease-out;
 }
 
-.modal__input_error {
+.modal__error {
   display:block;
   color: #FF0000B2;
   margin-bottom: 32px;
@@ -23,25 +23,18 @@
   font-family: Poppins;
   font-weight: 500;
   font-size: 16px;
-  line-height: 110.00000000000001%;
+  line-height: 110%;
   letter-spacing: 0%;
   visibility: visible;
 }
 
-/*
-.modal__input .modal__input_error {
-  border: 1px solid;
-  border-color: #FF000099;
-  opacity: 60%;
-  /*inner alignment
-}
+/*#modal__error_type--input {
 
-.modal__form .modal__input_error {
-  width: 630px;
-  height: auto;
-  gap: 32px;
 }*/
 
+.modal__error-hidden {
+  visibility: hidden;
+}
 
 .modal_opened {
   visibility: visible;
@@ -198,6 +191,10 @@
   font-size: 16px;
   line-height: 16px;
   letter-spacing: 0%;
+}
+
+.modal__submit-btn--disabled {
+  color: gray;
 }
 
 .modal__preview-caption {
