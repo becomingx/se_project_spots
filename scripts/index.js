@@ -75,6 +75,59 @@ const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
 
 
+/*Code a feature that allows the users to close the modal by clicking
+ on the overlay, i.e. anywhere outside the modal’s borders.
+
+ One way to manage this would be to select all the modal’s with 
+ querySelectorAll and loop for the resulting node list with the 
+ .forEach() method. In the loop, set a listener that closes the modal. 
+ You’ll need to check that the event target’s class list contains 
+ an appropriate class before closing the modal.
+
+ 2b. Closing the modal by pressing the Escape key
+Code a feature that allows the users to close the modal 
+by pressing the Escape key. Keep in mind the following:
+
+Add the event listener when the modal opens and remove it when it closes. 
+Not doing so will result in performance issues. Remember that you 
+can’t remove an event listener that has an anonymous handler function. 
+(Refer back to our lesson on the topic for a refresher: 
+https://tripleten.com/trainer/web/lesson/eca742a5-806c-4672-bd9f-650d194eeb21/task/80b8c176-1555-4739-9e34-2aae9c99b059/.)
+
+If you set the listener globally, as opposed to when you open a modal, 
+every single keypress a user makes will be checked by the handler. 
+Only set it when a modal is open to prevent unnecessary code execution.
+
+If you set the listener when the modal opens but fail to remove it 
+when it closes then you’ll wind up accumulating more 
+and more listeners in memory. 
+
+//pseudocode: close modal via overlay
+modal onclick anywhere in overlay outisde modal borders: close modal
+document.querySelectorAll(".modal")
+loop resulting node list w/ forEach and set listener that closes modal within loop
+make sure evt.target's class list has appropriate class before closing modal
+
+//pseudocode: close modal via esc
+add event listener when modal opens, remove when closed
+(can't remove evt listener that has an anonymous handler function)
+
+const modalOpenEscHandler = () => {
+  set something that enables esc to close the modal
+  }
+const modalCloseEscHandler = () => {
+  remove something that enables esc to close the modal
+  }
+
+modalOpenBtn.addEventListener("click", () => {
+  modalOpenEscHandler();
+  })
+
+modalSubmitBtn.addEventListner("click", () => {
+  modalCloseEscHandler();
+  })
+ */
+
 function getCardElement(data) {
   const cardElement = cardTemplate.content
   .querySelector(".card")
@@ -112,9 +165,13 @@ function getCardElement(data) {
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
+  //document.removeEventListener("keydown", handleEscapeKey);
+  //modal.removeEventListener("mousedown", handleClickOverlay);
 };
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
+  //document.removeEventListener("keydown", handleEscapeKey);
+  //modal.removeEventListener("mousedown", handleClickOverlay);
 };
 
 function handleEditModalFormSubmit(evt) {
@@ -147,6 +204,12 @@ profileEditBtn.addEventListener("click", () => {
   openModal(editModal);
   editModalNameInput.value = profileName.textContent;
   editModalDescriptionInput.value = profileDescription.textContent;
+  
+  resetValidation(
+    editModalFormElement,
+    [editModalNameInput, editModalDescriptionInput],
+    settings
+  );
 
 });
 

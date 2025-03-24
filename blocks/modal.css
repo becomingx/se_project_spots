@@ -28,11 +28,7 @@
   visibility: visible;
 }
 
-/*#modal__error_type--input {
-
-}*/
-
-.modal__error-hidden {
+.modal__error--hidden {
   visibility: hidden;
 }
 
