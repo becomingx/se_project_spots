@@ -28,6 +28,11 @@
   visibility: visible;
 }
 
+.modal__error_input {
+  border: 1px solid #ff0000;
+  opacity: 0.6;
+}
+
 .modal__error--hidden {
   visibility: hidden;
 }

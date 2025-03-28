@@ -1,43 +1,74 @@
 const settings = {
-    formSelector: ".modal__form",
-    inputSelector: ".modal__input",
-    submitButtonSelector: ".modal__submit-btn",
-    inactiveButtonClass: "#modal__submit-btn--disabled",
-    getInputErrorClass: (inputId) => `#${inputId}--error`,
-    errorClass: "modal__error",
-};
-
-const checkInputValidity = (formElement, inputElement) => {
-    console.log(inputElement.validity);
-};
-
-const setEventListeners =  (formElement) => {
-    const inputList = Array.from(formElement.querySelectorAll(".modal__input"));
-    const buttonElement = formElement.querySelector(".modal__submit-btn");
-
-    //handle initial states
-    //toggleButtonState(inputList, buttonElement);
-
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__submit-btn",
+  inactiveButtonClass: "modal__submit-btn--disabled", 
+  inputErrorClass: "modal__error_input", 
+  errorClass: "modal__error", 
+  errorClassHidden: "modal__error--hidden"
+  };
+  
+  function showInputError(formElement, inputElement, errorMessage, settings) {
+    const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
+    inputElement.classList.add(settings.inputErrorClass);
+    errorElement.textContent = errorMessage;
+    errorElement.classList.remove(settings.errorClassHidden);
+    errorElement.classList.add(settings.errorClass);
+  };
+  
+  function hideInputError(formElement, inputElement, settings) {
+    const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
+    inputElement.classList.remove(settings.inputErrorClass);
+    errorElement.textContent = "";
+    errorElement.classList.remove(settings.errorClass);
+    errorElement.classList.add(settings.errorClassHidden);
+  };
+  
+  function checkInputValidity(formElement, inputElement, settings) {
+    if (!inputElement.validity.valid) {
+      showInputError(formElement, inputElement, inputElement.validationMessage, settings);
+    } else {
+      hideInputError(formElement, inputElement, settings);
+    };
+  };
+  
+  function hasInvalidInput(inputList) {
+    return inputList.some((input) => !input.validity.valid);
+  };
+  
+  function toggleButtonState(inputList, buttonElement, settings) {
+    if (hasInvalidInput(inputList)) {
+      buttonElement.disabled = true;
+      buttonElement.classList.add(settings.inactiveButtonClass);
+    } else {
+      buttonElement.disabled = false;
+      buttonElement.classList.remove(settings.inactiveButtonClass);
+    };
+  };
+  
+  function setEventListeners(formElement, settings) {
+    const inputList = Array.from(formElement.querySelectorAll(settings.inputSelector));
+    const buttonElement = formElement.querySelector(settings.submitButtonSelector);
+  
+    toggleButtonState(inputList, buttonElement, settings);
+  
     inputList.forEach((inputElement) => {
-        inputElement.addEventListener("change", function () {
-            checkInputValidity(formElement, inputElement);
-        });
+      inputElement.addEventListener("input", () => {
+        checkInputValidity(formElement, inputElement, settings);
+        toggleButtonState(inputList, buttonElement, settings);
+      });
     });
-};
-
-const resetValidation = (formElement, inputElement, settings) => {
-
-    inputList.forEach((input) => {
-        hideInputError(formElement, input, settings);
-    });
-};
-
-
-const enableValidation = () => {
-    const formList = document.querySelectorAll(".modal__form");
+  };
+  
+  function enableValidation(settings) {
+    const formList = Array.from(document.querySelectorAll(settings.formSelector));
+  
     formList.forEach((formElement) => {
-        setEventListeners(formElement);
- });
-};
-
-enableValidation();
+      formElement.addEventListener("submit", (evt) => {
+        evt.preventDefault();
+      });
+      setEventListeners(formElement, settings);
+    });
+  };
+  
+  enableValidation(settings);

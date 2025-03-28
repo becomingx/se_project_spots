@@ -11,6 +11,8 @@ querySelectorAll and loop for the resulting node list with the
 the modal. You’ll need to check that the event target’s class 
 list contains an appropriate class before closing the modal.*/
 
+
+
 const initialCards = [
   {
       name: "Val Thorens",
@@ -204,13 +206,6 @@ profileEditBtn.addEventListener("click", () => {
   openModal(editModal);
   editModalNameInput.value = profileName.textContent;
   editModalDescriptionInput.value = profileDescription.textContent;
-  
-  resetValidation(
-    editModalFormElement,
-    [editModalNameInput, editModalDescriptionInput],
-    settings
-  );
-
 });
 
 addModalCloseBtn.addEventListener("click", () => {
