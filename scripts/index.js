@@ -105,7 +105,6 @@ const handleEscapeKey = (event) => {
   }
 };
 
-
 const handleOverlayClick = (event) => {
   if (event.target.classList.contains("modal_opened")) {
     closeModal(event.target);
@@ -154,6 +153,7 @@ profileEditBtn.addEventListener("click", () => {
   openModal(editModal);
   editModalNameInput.value = profileName.textContent;
   editModalDescriptionInput.value = profileDescription.textContent;
+  //novalidate stuff
 });
 
 addModalCloseBtn.addEventListener("click", () => {

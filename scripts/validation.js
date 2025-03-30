@@ -7,21 +7,25 @@ const settings = {
   errorClass: "modal__error", 
   errorClassHidden: "modal__error--hidden"
   };
-  
+
   function showInputError(formElement, inputElement, errorMessage, settings) {
-    const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
-    inputElement.classList.add(settings.inputErrorClass);
-    errorElement.textContent = errorMessage;
-    errorElement.classList.remove(settings.errorClassHidden);
-    errorElement.classList.add(settings.errorClass);
+    if (!formElement.closest('#edit-modal')) {
+      const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
+      inputElement.classList.add(settings.inputErrorClass);
+      errorElement.textContent = errorMessage;
+      errorElement.classList.remove(settings.errorClassHidden);
+      errorElement.classList.add(settings.errorClass);
+    };
   };
   
   function hideInputError(formElement, inputElement, settings) {
-    const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
-    inputElement.classList.remove(settings.inputErrorClass);
-    errorElement.textContent = "";
-    errorElement.classList.remove(settings.errorClass);
-    errorElement.classList.add(settings.errorClassHidden);
+    if (!formElement.closest('#edit-modal')) {
+      const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
+      inputElement.classList.remove(settings.inputErrorClass);
+      errorElement.textContent = "";
+      errorElement.classList.remove(settings.errorClass);
+      errorElement.classList.add(settings.errorClassHidden);
+    };
   };
   
   function checkInputValidity(formElement, inputElement, settings) {
@@ -49,9 +53,7 @@ const settings = {
   function setEventListeners(formElement, settings) {
     const inputList = Array.from(formElement.querySelectorAll(settings.inputSelector));
     const buttonElement = formElement.querySelector(settings.submitButtonSelector);
-  
-    toggleButtonState(inputList, buttonElement, settings);
-  
+    
     inputList.forEach((inputElement) => {
       inputElement.addEventListener("input", () => {
         checkInputValidity(formElement, inputElement, settings);
