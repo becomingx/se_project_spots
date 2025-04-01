@@ -58,7 +58,7 @@
   font-size: 16px;
   line-height: 110%;
   letter-spacing: 0%;
-  visibility: visible;
+  visibility: hidden;
 }
 
 .modal__error_input {
@@ -66,8 +66,8 @@
   opacity: 0.6;
 }
 
-.modal__error--hidden {
-  visibility: hidden;
+.modal__error--visible {
+  visibility: visible;
 }
 
 .modal_opened {
