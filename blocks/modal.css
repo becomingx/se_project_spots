@@ -51,7 +51,6 @@
 }
 
 .modal__error--visible {
-  color: #FF0000;
   opacity: 70%;
   font-family: Poppins;
   font-weight: 500;
@@ -59,6 +58,7 @@
   line-height: 110%;
   letter-spacing: 0%;
   visibility: visible;
+  border: 1px solid #FF0000;
 }
 
 .modal__error--hidden {
