@@ -63,7 +63,7 @@ const previewModalCloseBtn = previewModal.querySelector(".modal__close-btn--prev
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
 
-function getCardElement(data) {
+const getCardElement = (data) => {
   const cardElement = cardTemplate.content
   .querySelector(".card")
   .cloneNode(true);
@@ -112,28 +112,28 @@ const handleOverlayClick = (event) => {
   };
 };
 
-function openModal(modal) {
+const openModal = (modal) => {
   modal.classList.add("modal_opened");
   document.addEventListener("keydown", handleEscapeKey);
   modal.addEventListener("mousedown", handleOverlayClick);
 };
 
-function closeModal(modal) {
+const closeModal = (modal) => {
   modal.classList.remove("modal_opened");
   document.removeEventListener("keydown", handleEscapeKey);
   modal.removeEventListener("mousedown", handleOverlayClick);
 };
 
-function handleEditModalFormSubmit(evt) {
+const handleEditModalFormSubmit = (evt) => {
   evt.preventDefault();
   profileName.textContent = editModalNameInput.value;
   profileDescription.textContent = editModalDescriptionInput.value;
   closeModal(editModal);
 };
 
-function handleAddModalFormSubmit(evt) {
+const handleAddModalFormSubmit = (evt) => {
   evt.preventDefault();
-  
+
   const inputValues = { 
     name: addModalNameInput.value, 
     link: addModalCardInput.value

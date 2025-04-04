@@ -50,7 +50,7 @@
   opacity: 70%;
 }
 
-.modal__error {
+.modal__error--visible {
   color: #FF0000;
   opacity: 70%;
   font-family: Poppins;
@@ -58,16 +58,16 @@
   font-size: 16px;
   line-height: 110%;
   letter-spacing: 0%;
+  visibility: visible;
+}
+
+.modal__error--hidden {
   visibility: hidden;
 }
 
 .modal__error_input {
-  border: 1px solid #FF0000;
+  color: #FF0000;
   opacity: 0.6;
-}
-
-.modal__error--visible {
-  visibility: visible;
 }
 
 .modal_opened {
