@@ -6,6 +6,26 @@ This is an image sharing site.
 
 The se-project-spots is the third project of the Software Engineering program at TripleTen. The main idea of the project is to create a responsive site which responds to the user's behavior based on screen size, platform and orientation. I created this site using HTML and CSS, based on the design brief.
 
+Project File Mapping
+ ├── src
+ │   ├── blocks
+ │   ├── images  
+ │   ├── pages
+ │   │   ├── index.css
+ │   │   └── index.js
+ │   ├── scripts
+ │   ├── vendor
+ │   └── index.html
+ ├── .gitignore
+ ├── .prettierignore
+ ├── babel.config.js
+ ├── favicon.ico
+ ├── package-lock.json
+ ├── package.json
+ ├── postcss.config.js
+ ├── README.md
+ └── webpack.config.js
+
 ## Project Functionality
 
 This project is made so all the elements are displayed correctly on popular screen sizes. I worked with a Figma design which provides layouts for mobile (320px) and desktop (1440px). I used responsive design techniques to make the website responsive, which means the conttent area's width will change based on the browser window's width, and eliminate horizontal scrolling to ensure it appears good on all devices.
@@ -18,6 +38,9 @@ If the user has a big screen more than 1440px the only thing that changes, the m
 - CSS
 - Figma
 - Responsive Design
+- Babel
+- Webpack
+- PostCSS
 
 ## Description of Technologies
 
