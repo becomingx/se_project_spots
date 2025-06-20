@@ -7,7 +7,7 @@
     <meta name="author" content="Patricia Tirado">
     <meta name="keywords" content="Spots">
     <link rel="stylesheet" href=" vendor/normalize.css">
-    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
 
     <script  type= "module" src= "scripts/index.js"></script>
 
@@ -17,7 +17,7 @@
     <div class="page">
 
       <header class="header">
-        <img src="images/Logo.svg" alt="Spot logo" class="header__logo">
+        <img src="<%=require('./images/logo.svg')%>" alt="Logo">
       </header>
 
       <main class="content">
@@ -25,7 +25,7 @@
         <section class="profile page__section">
           <div class="profile__section">
             <img
-              src="images/avatar.jpg"
+              src="<%=require('./images/avatar.jpg')%>"
               alt="Bessie Coleman"
               class="profile__avatar"
             >
@@ -34,13 +34,13 @@
               <h1 class="profile__name">Bessie Coleman</h1>
               <p class="profile__description">Civil Aviator</p>
               <button type="button" class="profile__edit-btn">
-                <img src="images/pencil.svg" alt="Pencil icon">
+                <img src="<%=require('./images/pencil.svg')%>" alt="Pencil icon">
                 <span class="profile__edit-btn-text">Edit Profile</span>
               </button>
             </div>
           </div>
           <button type="button" class="profile__add-btn">
-            <img src="images/plus-sign.svg" alt="Plus icon">
+            <img src="<%=require('./images/plus-sign.svg')%>" alt="Plus icon">
             <span class="profile__add-btn-writing">New Post</span>
           </button>
         </section>
