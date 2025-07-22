@@ -10,9 +10,9 @@ import {
   resetValidation,
   enableValidation
 } from "/src/scripts/validation.js";
-
 import "/src/pages/index.css";
 
+/*
 const initialCards = [
   {
       name: "Val Thorens",
@@ -49,7 +49,28 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg"
   }
 
-];
+];*/
+
+/*
+auth token
+{
+  "user": {
+    "name": "Placeholder name",
+    "about": "Placeholder description",
+    "avatar": "https://practicum-content.s3.amazonaws.com/resources/avatar_placeholder_1704989734.svg",
+    "_id": "282ae76e083305b16c5ef25c"
+  },
+  "token": "30487a64-5f71-41bb-bbbd-2f7240ebc0c2"
+}
+*/
+
+const api =  new Api({
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
+  headers: {
+    authorization: "30487a64-5f71-41bb-bbbd-2f7240ebc0c2",
+    "content-Type": "application/json";
+  }
+});
 
 const profileName = document.querySelector(".profile__name");
 const profileDescription = document.querySelector(".profile__description");
