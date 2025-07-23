@@ -11,6 +11,7 @@ import {
   enableValidation
 } from "/src/scripts/validation.js";
 import "/src/pages/index.css";
+import Api from "/src/utils/api.js";
 
 /*
 const initialCards = [
@@ -68,7 +69,7 @@ const api =  new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
   headers: {
     authorization: "30487a64-5f71-41bb-bbbd-2f7240ebc0c2",
-    "content-Type": "application/json";
+    "content-Type": "application/json"
   }
 });
 
@@ -207,9 +208,11 @@ editModalCloseBtn.addEventListener("click", () => {
 editModalFormElement.addEventListener("submit", handleEditModalFormSubmit);
 addModalFormElement.addEventListener("submit", handleAddModalFormSubmit);
 
-initialCards.forEach((item) => {
-  const cardElement = getCardElement(item);
-  cardsList.append(cardElement);
-});
+api.getInitialCards().then((cards) => {
+  cards.forEach((item) => {
+    const cardEl = getCardElement(item);
+    cardsList.append(cardEl);
+  });
+}).catch(console.error);
 
 enableValidation(settings);
