@@ -13,58 +13,6 @@ import {
 import "/src/pages/index.css";
 import Api from "/src/utils/api.js";
 
-/*
-const initialCards = [
-  {
-      name: "Val Thorens",
-      link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg"
-  },
-
-  {
-      name: "Restaurant terrace",
-      link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/2-photo-by-ceiline-from-pexels.jpg"
-  },
-
-  {
-      name: "An outdoor cafe",
-      link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/3-photo-by-tubanur-dogan-from-pexels.jpg"
-  },
-
-  {
-      name: "A very long bridge, over the forest and through the trees",
-      link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/4-photo-by-maurice-laschet-from-pexels.jpg"
-  },
-
-  {
-      name: "Tunnel with morning light",
-      link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/5-photo-by-van-anh-nguyen-from-pexels.jpg"
-  },
-
-  {
-      name: "Mountain house",
-      link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg"
-  },
-
-  {
-    name: "Mountain house",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg"
-  }
-
-];*/
-
-/*
-auth token
-{
-  "user": {
-    "name": "Placeholder name",
-    "about": "Placeholder description",
-    "avatar": "https://practicum-content.s3.amazonaws.com/resources/avatar_placeholder_1704989734.svg",
-    "_id": "282ae76e083305b16c5ef25c"
-  },
-  "token": "30487a64-5f71-41bb-bbbd-2f7240ebc0c2"
-}
-*/
-
 const api =  new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
   headers: {
@@ -73,6 +21,7 @@ const api =  new Api({
   }
 });
 
+const profileAvatar = document.querySelector(".profile__avatar");
 const profileName = document.querySelector(".profile__name");
 const profileDescription = document.querySelector(".profile__description");
 const profileAddBtn = document.querySelector(".profile__add-btn");
@@ -208,11 +157,17 @@ editModalCloseBtn.addEventListener("click", () => {
 editModalFormElement.addEventListener("submit", handleEditModalFormSubmit);
 addModalFormElement.addEventListener("submit", handleAddModalFormSubmit);
 
-api.getInitialCards().then((cards) => {
+api.getAppInfo()
+.then(([cards, userInfo]) => {
   cards.forEach((item) => {
     const cardEl = getCardElement(item);
     cardsList.append(cardEl);
   });
-}).catch(console.error);
+  profileAvatar.src = userInfo.avatar;
+  profileName.textContent = userInfo.name;
+  profileDescription.textContent = userInfo.about;
+  
+})
+.catch(console.error);
 
-enableValidation(settings);
+enableValidation(settings); 
