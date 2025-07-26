@@ -13,7 +13,7 @@ import {
 import "/src/pages/index.css";
 import Api from "/src/utils/api.js";
 
-const api =  new Api({
+const api =  new Api({ 
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
   headers: {
     authorization: "30487a64-5f71-41bb-bbbd-2f7240ebc0c2",
@@ -112,6 +112,11 @@ const closeModal = (modal) => {
 
 const handleEditModalFormSubmit = (evt) => {
   evt.preventDefault();
+
+  api.editUserInfo({name: "Name Placeholder", about: "Description Placeholder"})
+  .then((data) => {})
+  .catch(console.error);
+
   profileName.textContent = editModalNameInput.value;
   profileDescription.textContent = editModalDescriptionInput.value;
   closeModal(editModal);
@@ -166,8 +171,12 @@ api.getAppInfo()
   profileAvatar.src = userInfo.avatar;
   profileName.textContent = userInfo.name;
   profileDescription.textContent = userInfo.about;
-  
 })
 .catch(console.error);
+
+/*
+ Note that the array of cards returned by the server will be empty until
+  you’ve added cards to it with the POST /cards request.
+*/
 
 enableValidation(settings); 
