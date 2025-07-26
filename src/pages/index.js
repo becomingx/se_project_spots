@@ -113,13 +113,14 @@ const closeModal = (modal) => {
 const handleEditModalFormSubmit = (evt) => {
   evt.preventDefault();
 
-  api.editUserInfo({name: "Name Placeholder", about: "Description Placeholder"})
-  .then((data) => {})
+  api.editUserInfo({name: editModalNameInput.value, about: editModalDescriptionInput.value})
+  .then((data) => {  
+    // Always use the server response data to update your UI, not the input values.
+    profileName.textContent = data.name;
+    profileDescription.textContent = data.about;
+    closeModal(editModal);
+  })
   .catch(console.error);
-
-  profileName.textContent = editModalNameInput.value;
-  profileDescription.textContent = editModalDescriptionInput.value;
-  closeModal(editModal);
 };
 
 const handleAddModalFormSubmit = (evt) => {
