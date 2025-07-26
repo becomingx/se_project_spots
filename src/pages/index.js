@@ -27,6 +27,14 @@ const profileDescription = document.querySelector(".profile__description");
 const profileAddBtn = document.querySelector(".profile__add-btn");
 const profileEditBtn = document.querySelector(".profile__edit-btn");
 
+/*
+const avatarModal = document.querySelector("#edit-avatar-modal");
+const avatarModalBtn = document.querySelector(".profile__edit-avatar-btn");
+const avatarModalFormElement = avatarModal.querySelector(".modal__form");
+const avatarModalSubmitBtn = avatarModal.querySelector(".modal__submit-btn");
+const avatarModalCloseBtn = avatarModal.querySelector(".modal__close-btn");
+const avatarModalUrlInput = avatarModal.querySelector("#edit-avatar-url-input");*/
+
 const editModal = document.querySelector("#edit-modal");
 const editModalFormElement = editModal.querySelector(".modal__form");
 const editModalCloseBtn = editModal.querySelector(".modal__close-btn");
@@ -110,6 +118,15 @@ const closeModal = (modal) => {
   modal.removeEventListener("mousedown", handleOverlayClick);
 };
 
+/*const handleAvatarModalFormSubmit = (evt) => {
+  evt.preventDefault();
+  api.editUserAvatar({avatar: profileAvatar.src})
+  .then((data) => {
+    profileAvatar.src = data.src;
+  })
+  .catch(console.error);
+}*/
+
 const handleEditModalFormSubmit = (evt) => {
   evt.preventDefault();
 
@@ -122,6 +139,7 @@ const handleEditModalFormSubmit = (evt) => {
   })
   .catch(console.error);
 };
+
 
 const handleAddModalFormSubmit = (evt) => {
   evt.preventDefault();
@@ -142,6 +160,10 @@ previewModalCloseBtn.addEventListener("click", () => {
   closeModal(previewModal);
 });
 
+/*avatarModalBtn.addEventListener("click", () => {
+  openModal(avatarModal);
+})*/
+
 profileAddBtn.addEventListener("click", () => {
   openModal(addModal); 
 });
@@ -153,6 +175,7 @@ profileEditBtn.addEventListener("click", () => {
   resetValidation(editModal, [editModalNameInput, editModalDescriptionInput], editModalSubmitBtn, settings);
 });
 
+
 addModalCloseBtn.addEventListener("click", () => {
   closeModal(addModal);
 });
@@ -160,8 +183,13 @@ editModalCloseBtn.addEventListener("click", () => {
   closeModal(editModal);
 });
 
+/*avatarModalCloseBtn.addEventListener("click",()  => {
+  closeModal(avatarModal);
+});*/
+
 editModalFormElement.addEventListener("submit", handleEditModalFormSubmit);
 addModalFormElement.addEventListener("submit", handleAddModalFormSubmit);
+/*avatarModalFormElement.addEventListener("submit", handleAvatarModalFormSubmit);*/
 
 api.getAppInfo()
 .then(([cards, userInfo]) => {
@@ -169,11 +197,20 @@ api.getAppInfo()
     const cardEl = getCardElement(item);
     cardsList.append(cardEl);
   });
-  profileAvatar.src = userInfo.avatar;
   profileName.textContent = userInfo.name;
   profileDescription.textContent = userInfo.about;
+  profileAvatar.src = userInfo.avatar;
 })
 .catch(console.error);
+
+/*
+1. User clicks the edit avatar button (appears on hover over profile picture)
+2. A popup/modal opens with a form that has one input field for the new avatar URL
+3. User enters a new image URL in that form field
+4. When the form is submitted, that URL gets passed to your editUserAvatar method
+So the answer to your question is: The user will type the new avatar URL into a 
+form input field, just like they do when editing their name and about information.
+*/
 
 /*
  Note that the array of cards returned by the server will be empty until

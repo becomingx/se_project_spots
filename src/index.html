@@ -9,7 +9,7 @@
     <link rel="stylesheet" href=" vendor/normalize.css">
     <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
 
-    <script  type= "module" src='./pages/index.js'></script>
+    <script  type= "module" src= "scripts/index.js"></script>
 
     <title>Spots</title>
   </head>
@@ -23,12 +23,16 @@
       <main class="content">
 
         <section class="profile page__section">
+          <button type="button" class="profile__edit-avatar-btn">
+            <img src="<%=require('./images/pencil.svg')%>" alt="Pencil icon">
+            <span class="profile__edit-avatar-text"></span></button>
           <div class="profile__section">
             <img
               src="<%=require('./images/avatar.jpg')%>"
               alt="Bessie Coleman"
               class="profile__avatar"
             >
+
 
             <div class="profile__column">
               <h1 class="profile__name">Bessie Coleman</h1>
@@ -151,6 +155,33 @@
           <p class="modal__preview-caption"></p>
         </div>
       </div>
+
+      <!--
+<div class="modal" id = "#edit-avatar-modal">
+        <div class="modal__container">
+          <h2 class="modal__title"><span class= "modal__title-writing">Edit Profile</span></h2>
+          
+          <button type="button" class="modal__close-btn"></button>
+
+          <form name= "edit-avatar-url" class="modal__form" novalidate>
+            <label for="edit-avatar-url-input" class="modal__label">
+              <span class= "modal__label-writing">Name</span>
+              <input 
+                id="edit-avatar-url-input" 
+                placeholder="Name" 
+                type= "url" 
+                class="modal__input"
+                required
+              />
+              <span class="modal__error modal__error_input" id="edit-avatar-modal-input-error">Please use at least 2 characters.</span>
+            </label>
+
+            <button type="submit" class="modal__submit-btn">Save</button>
+          </form>
+        </div>
+      </div>
+      
+      -->
 
     </div>
   </body>

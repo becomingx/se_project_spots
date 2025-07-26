@@ -33,7 +33,7 @@ class Api {
     API endpoints: User routes
     GET /users/me – Get the current user’s info: getUserInfo()
     PATCH /users/me – Update your profile information: editUserInfo()
-    PATCH /users/me/avatar – Update avatar: updateAvatar()
+    PATCH /users/me/avatar – Update avatar: editUserAvatar()
     */
     
     getUserInfo() {
@@ -79,11 +79,34 @@ class Api {
         })
     }   
     
-/*
-    updateAvatar() {
-
-    }
-
+      /*
+  In the request body, pass the JSON with a single property, avatar.
+  This property should contain a link to the new profile picture. 
+  If anything other than a link is sent, the server will return an error.
+   */
+    editUserAvatar({avatar}) {
+        return fetch(`${this._baseUrl}/users/me/avatar`,
+            { 
+                method: "PATCH",
+                headers: this._headers,
+                body: JSON.stringify({
+                avatar: `${this._baseUrl}/users/me/avatar`
+                })
+            })
+            .then((res) => {
+                if (res.ok) {
+                return res.json();
+            }
+            return Promise.reject(res.status);
+        })
+        .catch((err) => {
+            if (err) {
+                console.error(err);
+                return Promise.reject(err);
+            }
+        })
+    }   
+    
     /*
     API endpoints: Card routes
     GET /cards – Get all cards: getUserCards()
@@ -92,7 +115,7 @@ class Api {
     PUT /cards/:cardId/likes – Like a card: toggleLikeCard()
     DELETE /cards/:cardId/likes – Dislike a card: toggleLikeCard()
     */
-    
+
     getUserCards() {
         return fetch(`${this._baseUrl}/cards`,
             { 
