@@ -1,5 +1,4 @@
 class Api {
-    // Constructor method
     constructor({baseUrl, headers}) {
       this._baseUrl = baseUrl;
       this._headers = headers;
@@ -8,26 +7,6 @@ class Api {
     getAppInfo() {
         return Promise.all([this.getUserCards(), this.getUserInfo()]);
     }
-        
-    /*getInitialCards() { 
-        return fetch(
-            `${this._baseUrl}/cards`, 
-            { 
-                headers: this._headers
-            })
-            .then(res => {
-                if (res.ok) {
-                    return res.json();
-                }
-                return Promise.reject(res.status);
-            })
-            .catch((err) => {
-                if (err) {
-                    console.error(err);
-                    return Promise.reject(err);
-                }
-            })
-    }*/
 
     /*
     API endpoints: User routes
@@ -79,18 +58,13 @@ class Api {
         })
     }   
     
-      /*
-  In the request body, pass the JSON with a single property, avatar.
-  This property should contain a link to the new profile picture. 
-  If anything other than a link is sent, the server will return an error.
-   */
     editUserAvatar({avatar}) {
         return fetch(`${this._baseUrl}/users/me/avatar`,
             { 
                 method: "PATCH",
                 headers: this._headers,
                 body: JSON.stringify({
-                avatar: `${this._baseUrl}/users/me/avatar`
+                avatar: ""
                 })
             })
             .then((res) => {
