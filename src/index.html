@@ -23,32 +23,34 @@
       <main class="content">
 
         <section class="profile page__section">
-          
           <div class="profile__section">
-            <button type="button" class="profile__edit-avatar-btn profile__avatar">
-              <img src="<%=require('./images/pencil-light.svg')%>" alt="Pencil icon">
-            </button>
-
-            <img
-              src="<%=require('./images/avatar.jpg')%>"
-              alt="Bessie Coleman"
-              class="profile__avatar"
-            >
-
-
-            <div class="profile__column">
-              <h1 class="profile__name">Bessie Coleman</h1>
-              <p class="profile__description">Civil Aviator</p>
-              <button type="button" class="profile__edit-btn">
-                <img src="<%=require('./images/pencil.svg')%>" alt="Pencil icon">
-                <span class="profile__edit-btn-text">Edit Profile</span>
+            <div class="profile__avatar-container">
+              <button type="button" class="profile__edit-avatar-btn profile__avatar">
+                <img src="<%=require('./images/pencil-light.svg')%>" alt="Pencil icon">
               </button>
+
+              <img
+                src="<%=require('./images/avatar.jpg')%>"
+                alt="Bessie Coleman"
+                class="profile__avatar"
+              >
             </div>
+
+              <div class="profile__column">
+                <h1 class="profile__name">Bessie Coleman</h1>
+                <p class="profile__description">Civil Aviator</p>
+                <button type="button" class="profile__edit-btn">
+                  <img src="<%=require('./images/pencil.svg')%>" alt="Pencil icon">
+                  <span class="profile__edit-btn-text">Edit Profile</span>
+                </button>
+              </div>
           </div>
+          
           <button type="button" class="profile__add-btn">
             <img src="<%=require('./images/plus-sign.svg')%>" alt="Plus icon">
             <span class="profile__add-btn-writing">New Post</span>
           </button>
+
         </section>
 
         <section class="cards page__section">

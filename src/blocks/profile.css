@@ -1,9 +1,12 @@
 .profile {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
   width: 1280px;
   max-width: 100%;
+}
+
+.profile .page__section {
+  justify-content: space-between;
 }
 
 .profile__section {
@@ -11,7 +14,15 @@
   position: relative;
   padding-top: 20px;
   gap: 12px;
+  width: 505px;
+  height: 190px;
 }
+
+.profile__avatar-container {
+  display: flex;
+  gap: 20px;
+  position: relative;
+ }
 
 .profile__edit-avatar-btn {
   display: flex;
@@ -108,6 +119,8 @@
 }
 
 .profile__add-btn {
+  flex-wrap: wrap;
+  align-self:flex-end;
   flex-shrink: 0;
   font-family: poppins, Arial, Helvetica, sans-serif;
   font-weight: 500;
@@ -125,6 +138,8 @@
   gap: 8px;
   padding: 18px 32px;
 }
+
+
 
 .profile__add-btn:hover {
   opacity: 0.8;
