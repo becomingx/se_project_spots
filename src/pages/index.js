@@ -54,6 +54,13 @@ const previewModalImageElement = previewModal.querySelector(".modal__image");
 const previewModalCaption = previewModal.querySelector(".modal__preview-caption");
 const previewModalCloseBtn = previewModal.querySelector(".modal__close-btn--preview");
 
+/* 
+const deleteCardModal = document.querySelector("#delete-card-modal");
+const deleteCardModal = deleteCardModal.querySelector(".modal__form";)
+const deleteCardModalBtn = deleteCardModal.querySelector(".modal__submit-btn");
+const deleteCardModalCloseBtn = deleteCardModal.querySelector(".modal__close-btn");
+*/
+
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
 
@@ -140,7 +147,6 @@ const handleEditModalFormSubmit = (evt) => {
   .catch(console.error);
 };
 
-
 const handleAddModalFormSubmit = (evt) => {
   evt.preventDefault();
 
@@ -160,9 +166,22 @@ previewModalCloseBtn.addEventListener("click", () => {
   closeModal(previewModal);
 });
 
-/*avatarModalBtn.addEventListener("click", () => {
+/*
+avatarModalBtn.addEventListener("click", () => {
+  openModal(avatarModal);
+})
+*/
+
+/*
+/*avatarModalSubmitBtn.addEventListener("click", () => {
   openModal(avatarModal);
 })*/
+
+/*
+deleteCardModalBtn.addEventListener("click", () => {
+  openModal(deleteCardModal);
+})
+*/
 
 profileAddBtn.addEventListener("click", () => {
   openModal(addModal); 
@@ -183,9 +202,17 @@ editModalCloseBtn.addEventListener("click", () => {
   closeModal(editModal);
 });
 
-/*avatarModalCloseBtn.addEventListener("click",()  => {
+/*
+avatarModalCloseBtn.addEventListener("click",()  => {
   closeModal(avatarModal);
-});*/
+});
+*/
+
+/*
+  deleteCardModalCloseBtn.addEventListener("click", () => {
+    closeModal(deleteCardModal);
+});
+*/
 
 editModalFormElement.addEventListener("submit", handleEditModalFormSubmit);
 addModalFormElement.addEventListener("submit", handleAddModalFormSubmit);
@@ -204,6 +231,13 @@ api.getAppInfo()
 .catch(console.error);
 
 /*
+The image src should be set to the value of the avatar property from the API response, not the API endpoint URL.
+{
+  "about": "Placeholder description",
+  "avatar": "https://practicum-content.s3.amazonaws.com/resources/default-avatar_1704458546.png",
+  "name": "Placeholder name",
+  "_id": "e20537ed11237f86bbb20ccb"
+}
 1. User clicks the edit avatar button (appears on hover over profile picture)
 2. A popup/modal opens with a form that has one input field for the new avatar URL
 3. User enters a new image URL in that form field
