@@ -106,17 +106,29 @@ gap: 32px;
   gap: 8px;
 }
 
-#delete-card-modal {
+#delete-card-modal .modal__container {
+  justify-items: center;
+  gap: 32px;
   width: 630px;
   height: 172px;
-  top: 325px;
-  left: 405px;
   border-radius: 8px;
   padding-top: 32px;
   padding-right: 20px;
   padding-bottom: 32px;
   padding-left: 20px;
-  gap: 32px;
+}
+
+#delete-card-modal .btn-container {
+  display: flex;
+  align-items: space-between;
+  width: 332px;
+  height: 52px;
+  gap: 20px;
+}
+
+#delete-card-modal .modal__label-writing {
+  width: 590px;
+  height: 24px;
 }
 
 #delete-card-modal .modal__submit-btn {
@@ -128,19 +140,49 @@ gap: 32px;
   padding-bottom: 18px;
   padding-left: 32px;
   gap: 8px;
-
+  background-color: #000;
+  border-color:black;
+  color: rgba(252, 245, 229, 1);
+  cursor: pointer;
+  font-family: Poppins;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 16px;
+  letter-spacing: 0%;
 }
 
-#delete-card-modal .modal__close-btn {
-  width: 156;
-  height: 52;
+.delete-card-modal .modal__submit-btn:hover {
+  opacity: 1;
+  background-color: transparent;
+  cursor: pointer;
+  transition: visibility 0.3s ease-in, opacity 0.3s ease-out;
+}
+
+#delete-card-modal .modal__cancel-btn {
+  width: 156px;
+  height: 52px;
   border-radius: 8px;
   padding-top: 18px;
   padding-right: 32px;
   padding-bottom: 18px;
   padding-left: 32px;
   gap: 8px;
-  border-width: 1px;
+  background-color: #000;
+  border-color:black;
+  color: rgba(252, 245, 229, 1);
+  cursor: pointer;
+  font-family: Poppins;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 16px;
+  letter-spacing: 0%;
+}
+
+#delete-card-modal .modal__cancel-btn:hover {
+  opacity: 1;
+  background-color: transparent;
+  cursor: pointer;
+  transition: visibility 0.3s ease-in, opacity 0.3s ease-out;
 }
 
 .modal__image {

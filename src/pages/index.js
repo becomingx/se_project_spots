@@ -22,7 +22,6 @@ const api =  new Api({
 });
 
 const profileAvatar = document.querySelector(".profile__avatar");
-const profileAvatarContainer = document.querySelector(".profile__avatar-container");
 const profileName = document.querySelector(".profile__name");
 const profileDescription = document.querySelector(".profile__description");
 const profileAddBtn = document.querySelector(".profile__add-btn");
@@ -31,7 +30,6 @@ const profileEditBtn = document.querySelector(".profile__edit-btn");
 const avatarModal = document.querySelector("#edit-avatar-modal");
 const avatarModalBtn = document.querySelector(".profile__edit-avatar-btn");
 const avatarModalFormElement = avatarModal.querySelector(".modal__form");
-const avatarModalSubmitBtn = avatarModal.querySelector(".modal__submit-btn");
 const avatarModalCloseBtn = avatarModal.querySelector(".modal__close-btn");
 const avatarModalUrlInput = avatarModal.querySelector("#edit-avatar-url-input");
 
@@ -54,12 +52,12 @@ const previewModalImageElement = previewModal.querySelector(".modal__image");
 const previewModalCaption = previewModal.querySelector(".modal__preview-caption");
 const previewModalCloseBtn = previewModal.querySelector(".modal__close-btn--preview");
 
-/* 
+
+
+
 const deleteCardModal = document.querySelector("#delete-card-modal");
-const deleteCardModal = deleteCardModal.querySelector(".modal__form";)
+const deleteCardModalCloseBtn = deleteCardModal.querySelector(".modal__cancel-btn");
 const deleteCardModalBtn = deleteCardModal.querySelector(".modal__submit-btn");
-const deleteCardModalCloseBtn = deleteCardModal.querySelector(".modal__close-btn");
-*/
 
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
@@ -71,7 +69,6 @@ const getCardElement = (data) => {
 
   const cardNameElement = cardElement.querySelector(".card__title");
   const cardImageElement = cardElement.querySelector(".card__image");
-
   const likeBtn = cardElement.querySelector(".card__like-btn");
   const deleteBtn = cardElement.querySelector(".card__delete-btn");
 
@@ -84,15 +81,25 @@ const getCardElement = (data) => {
   });
 
   deleteBtn.addEventListener("click", () => {
-    cardElement.remove();
+    openModal(deleteCardModal);
   });
+
+   /* //deleteCardModalBtn submit
+  deleteCardModalBtn.addEventListener("submit", () => {
+    cardElement.remove();
+  })*/
+
+  deleteCardModalCloseBtn.addEventListener("click", () => {
+    closeModal(deleteCardModal);
+  })
+
+
 
   cardImageElement.addEventListener("click", () => {
     openModal(previewModal);
     previewModalCaption.textContent = data.name;
     previewModalImageElement.alt = data.name;
     previewModalImageElement.src = data.link;
-
   });
 
   return cardElement;
@@ -124,6 +131,7 @@ const closeModal = (modal) => {
   document.removeEventListener("keydown", handleEscapeKey);
   modal.removeEventListener("mousedown", handleOverlayClick);
 };
+
 
 const handleAvatarModalFormSubmit = (evt) => {
   evt.preventDefault();
@@ -163,20 +171,10 @@ const handleAddModalFormSubmit = (evt) => {
   disableButton(addModalSubmitBtn, settings);
 };
 
-previewModalCloseBtn.addEventListener("click", () => {
-  closeModal(previewModal);
-});
-
 
 avatarModalBtn.addEventListener("click", () => {
   openModal(avatarModal);
 });
-
-/*
-deleteCardModalBtn.addEventListener("click", () => {
-  openModal(deleteCardModal);
-})
-*/
 
 profileAddBtn.addEventListener("click", () => {
   openModal(addModal); 
@@ -189,6 +187,9 @@ profileEditBtn.addEventListener("click", () => {
   resetValidation(editModal, [editModalNameInput, editModalDescriptionInput], editModalSubmitBtn, settings);
 });
 
+previewModalCloseBtn.addEventListener("click", () => {
+  closeModal(previewModal);
+});
 
 addModalCloseBtn.addEventListener("click", () => {
   closeModal(addModal);
@@ -201,9 +202,7 @@ avatarModalCloseBtn.addEventListener("click",()  => {
   closeModal(avatarModal);
 });
 
-/*deleteCardModalCloseBtn.addEventListener("click", () => {
-    closeModal(deleteCardModal);
-});*/
+
 
 
 editModalFormElement.addEventListener("submit", handleEditModalFormSubmit);
