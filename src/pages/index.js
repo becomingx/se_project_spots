@@ -22,18 +22,18 @@ const api =  new Api({
 });
 
 const profileAvatar = document.querySelector(".profile__avatar");
+const profileAvatarContainer = document.querySelector(".profile__avatar-container");
 const profileName = document.querySelector(".profile__name");
 const profileDescription = document.querySelector(".profile__description");
 const profileAddBtn = document.querySelector(".profile__add-btn");
 const profileEditBtn = document.querySelector(".profile__edit-btn");
 
-/*
 const avatarModal = document.querySelector("#edit-avatar-modal");
 const avatarModalBtn = document.querySelector(".profile__edit-avatar-btn");
 const avatarModalFormElement = avatarModal.querySelector(".modal__form");
 const avatarModalSubmitBtn = avatarModal.querySelector(".modal__submit-btn");
 const avatarModalCloseBtn = avatarModal.querySelector(".modal__close-btn");
-const avatarModalUrlInput = avatarModal.querySelector("#edit-avatar-url-input");*/
+const avatarModalUrlInput = avatarModal.querySelector("#edit-avatar-url-input");
 
 const editModal = document.querySelector("#edit-modal");
 const editModalFormElement = editModal.querySelector(".modal__form");
@@ -125,21 +125,22 @@ const closeModal = (modal) => {
   modal.removeEventListener("mousedown", handleOverlayClick);
 };
 
-/*const handleAvatarModalFormSubmit = (evt) => {
+const handleAvatarModalFormSubmit = (evt) => {
   evt.preventDefault();
-  api.editUserAvatar({avatar: profileAvatar.src})
-  .then((data) => {
-    profileAvatar.src = data.src;
-  })
-  .catch(console.error);
-}*/
+
+  api.editUserAvatar({avatar: avatarModalUrlInput.value})
+    .then((data) => {
+      profileAvatar.src = data.avatar;
+      closeModal(avatarModal);
+    })
+    .catch(console.error);
+};
 
 const handleEditModalFormSubmit = (evt) => {
   evt.preventDefault();
 
   api.editUserInfo({name: editModalNameInput.value, about: editModalDescriptionInput.value})
   .then((data) => {  
-    // Always use the server response data to update your UI, not the input values.
     profileName.textContent = data.name;
     profileDescription.textContent = data.about;
     closeModal(editModal);
@@ -166,16 +167,10 @@ previewModalCloseBtn.addEventListener("click", () => {
   closeModal(previewModal);
 });
 
-/*
+
 avatarModalBtn.addEventListener("click", () => {
   openModal(avatarModal);
-})
-*/
-
-/*
-/*avatarModalSubmitBtn.addEventListener("click", () => {
-  openModal(avatarModal);
-})*/
+});
 
 /*
 deleteCardModalBtn.addEventListener("click", () => {
@@ -202,21 +197,18 @@ editModalCloseBtn.addEventListener("click", () => {
   closeModal(editModal);
 });
 
-/*
 avatarModalCloseBtn.addEventListener("click",()  => {
   closeModal(avatarModal);
 });
-*/
 
-/*
-  deleteCardModalCloseBtn.addEventListener("click", () => {
+/*deleteCardModalCloseBtn.addEventListener("click", () => {
     closeModal(deleteCardModal);
-});
-*/
+});*/
+
 
 editModalFormElement.addEventListener("submit", handleEditModalFormSubmit);
 addModalFormElement.addEventListener("submit", handleAddModalFormSubmit);
-/*avatarModalFormElement.addEventListener("submit", handleAvatarModalFormSubmit);*/
+avatarModalFormElement.addEventListener("submit", handleAvatarModalFormSubmit);
 
 api.getAppInfo()
 .then(([cards, userInfo]) => {
@@ -229,22 +221,6 @@ api.getAppInfo()
   profileAvatar.src = userInfo.avatar;
 })
 .catch(console.error);
-
-/*
-The image src should be set to the value of the avatar property from the API response, not the API endpoint URL.
-{
-  "about": "Placeholder description",
-  "avatar": "https://practicum-content.s3.amazonaws.com/resources/default-avatar_1704458546.png",
-  "name": "Placeholder name",
-  "_id": "e20537ed11237f86bbb20ccb"
-}
-1. User clicks the edit avatar button (appears on hover over profile picture)
-2. A popup/modal opens with a form that has one input field for the new avatar URL
-3. User enters a new image URL in that form field
-4. When the form is submitted, that URL gets passed to your editUserAvatar method
-So the answer to your question is: The user will type the new avatar URL into a 
-form input field, just like they do when editing their name and about information.
-*/
 
 /*
  Note that the array of cards returned by the server will be empty until

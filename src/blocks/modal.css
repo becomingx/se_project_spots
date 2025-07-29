@@ -13,8 +13,6 @@
   transition: visibility 0.3s ease-in, opacity 0.3s ease-out;
 }
 
-
-
 .modal__container {
   box-sizing: border-box;
   flex-direction: column;
@@ -86,11 +84,9 @@
 }
 
 
-#edit-avatar-modal {
-width: 730;
-height: 298;
-top: 262px;
-left: 355px;
+#edit-avatar-modal .modal__container {
+width: 730px;
+height: 298px;
 border-radius: 8px;
 padding-top: 32px;
 padding-right: 50px;
@@ -100,8 +96,8 @@ gap: 32px;
 }
 
 #edit-avatar-modal .modal__submit-btn {
-  width: 156;
-  height: 52;
+  width: 156px;
+  height: 52px;
   border-radius: 8px;
   padding-top: 18px;
   padding-right: 32px;
@@ -110,7 +106,7 @@ gap: 32px;
   gap: 8px;
 }
 
-#delete-modal {
+#delete-card-modal {
   width: 630px;
   height: 172px;
   top: 325px;
@@ -123,7 +119,7 @@ gap: 32px;
   gap: 32px;
 }
 
-#delete-modal .modal__submit-btn {
+#delete-card-modal .modal__submit-btn {
   width: 156px;
   height: 52px;
   border-radius: 8px;
@@ -135,7 +131,7 @@ gap: 32px;
 
 }
 
-#delete-modal .modal__close-btn {
+#delete-card-modal .modal__close-btn {
   width: 156;
   height: 52;
   border-radius: 8px;
