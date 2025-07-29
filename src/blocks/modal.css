@@ -106,7 +106,20 @@ gap: 32px;
   gap: 8px;
 }
 
+#delete-card-modal .modal__title {
+  width: 590px;
+  height: 24px;
+  font-family: Poppins;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+}
+
 #delete-card-modal .modal__container {
+  display: flex;
   justify-items: center;
   gap: 32px;
   width: 630px;
@@ -120,20 +133,29 @@ gap: 32px;
 
 #delete-card-modal .btn-container {
   display: flex;
-  align-items: space-between;
+  justify-items: center;
   width: 332px;
   height: 52px;
   gap: 20px;
 }
 
-#delete-card-modal .modal__label-writing {
-  width: 590px;
-  height: 24px;
+#delete-card-modal .modal__close-btn {
+  display: flex;
+  position: absolute;
+  left: 100%;
+  border-style: none;
+  color: #fff;
+  background-color: transparent;
+  border-radius: 0;
+  opacity: 1;
+  top: 0;
+  right: 0;
 }
 
 #delete-card-modal .modal__submit-btn {
   width: 156px;
   height: 52px;
+  border-style: none;
   border-radius: 8px;
   padding-top: 18px;
   padding-right: 32px;
@@ -166,6 +188,7 @@ gap: 32px;
   padding-right: 32px;
   padding-bottom: 18px;
   padding-left: 32px;
+  border-style: none;
   gap: 8px;
   background-color: #000;
   border-color:black;
