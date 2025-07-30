@@ -55,10 +55,15 @@ const previewModalCloseBtn = previewModal.querySelector(".modal__close-btn--prev
 const deleteCardModal = document.querySelector("#delete-card-modal");
 const deleteCardModalCancelBtn = deleteCardModal.querySelector(".modal__cancel-btn");
 const deleteCardModalBtn = deleteCardModal.querySelector(".modal__submit-btn");
-const deleteCardModalCloseBtn = deleteCardModal.querySelector(".modal__close-btn") 
+const deleteCardModalCloseBtn = deleteCardModal.querySelector(".modal__close-btn");
+const deleteCardModalForm = deleteCardModal.querySelector(".modal__form"); 
 
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
+
+let selectedCard;
+let selectedCardId;
+
 
 const getCardElement = (data) => {
   const cardElement = cardTemplate.content
@@ -78,21 +83,9 @@ const getCardElement = (data) => {
     likeBtn.classList.toggle("card__like-btn-liked");
   });
 
-  deleteBtn.addEventListener("click", () => {
-    openModal(deleteCardModal);
+  deleteBtn.addEventListener("click", (evt) => {
+    handleDeleteCard(cardElement, data);
   });
-
-  deleteCardModalBtn.addEventListener("submit", () => {
-    cardElement.remove();
-  })
-
-  deleteCardModalCancelBtn.addEventListener("click", () => {
-    closeModal(deleteCardModal);
-  })
-
-  deleteCardModalCloseBtn.addEventListener("click", () => {
-    closeModal(deleteCardModal);
-  })
 
   cardImageElement.addEventListener("click", () => {
     openModal(previewModal);
@@ -103,6 +96,7 @@ const getCardElement = (data) => {
 
   return cardElement;
 };
+
 
 const handleEscapeKey = (event) => {
   if (event.key === "Escape") {
@@ -170,6 +164,23 @@ const handleAddModalFormSubmit = (evt) => {
   disableButton(addModalSubmitBtn, settings);
 };
 
+const handleDeleteCard = (cardElement, data) => {
+  selectedCard = cardElement;
+  selectedCardId = data._id; 
+  openModal(deleteCardModal);
+};
+
+const handleDeleteCardSubmit = () => {
+  api.removeCard(selectedCardId)
+  .then(() => {
+    selectedCard.remove();
+    closeModal(deleteCardModal);
+  }).catch(console.error);  
+}
+
+deleteCardModalBtn.addEventListener("click", () => {
+  openModal(deleteCardModal);
+})
 
 avatarModalBtn.addEventListener("click", () => {
   openModal(avatarModal);
@@ -201,12 +212,20 @@ avatarModalCloseBtn.addEventListener("click",()  => {
   closeModal(avatarModal);
 });
 
+deleteCardModalCancelBtn.addEventListener("click", () => {
+  closeModal(deleteCardModal);
+})
 
+deleteCardModalCloseBtn.addEventListener("click", () => {
+  closeModal(deleteCardModal);
+})
 
 
 editModalFormElement.addEventListener("submit", handleEditModalFormSubmit);
 addModalFormElement.addEventListener("submit", handleAddModalFormSubmit);
 avatarModalFormElement.addEventListener("submit", handleAvatarModalFormSubmit);
+deleteCardModalForm.addEventListener("submit", handleDeleteCardSubmit);
+
 
 api.getAppInfo()
 .then(([cards, userInfo]) => {
@@ -220,9 +239,5 @@ api.getAppInfo()
 })
 .catch(console.error);
 
-/*
- Note that the array of cards returned by the server will be empty until
-  you’ve added cards to it with the POST /cards request.
-*/
-
 enableValidation(settings); 
+

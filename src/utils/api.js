@@ -64,7 +64,7 @@ class Api {
                 method: "PATCH",
                 headers: this._headers,
                 body: JSON.stringify({
-                avatar
+                    avatar
                 })
             })
             .then((res) => {
@@ -107,21 +107,39 @@ class Api {
                 return Promise.reject(err);
             }
         })
+    }   
+
+    removeCard(_id) {        
+        return fetch(`${this._baseUrl}v1/cards/${_id}`,
+            { 
+                method: "DELETE",
+                headers: this._headers,
+            })
+            .then((res) => {
+                if (res.ok) {
+                return res;
+            }
+            return Promise.reject(res.status);
+        })
+        .catch((err) => {
+            if (err) {
+                console.error(err);
+                return Promise.reject(err);
+            }
+        })
     }
     
     /*
-    createCard() {
-
-    }
-
-    deleteCard() {
-
     }
 
     toggleLikeCard() {
 
     }
-    */
+ 
+    createCard() {
+
+    }
+   */
 
   }
 
