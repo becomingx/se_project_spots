@@ -52,12 +52,10 @@ const previewModalImageElement = previewModal.querySelector(".modal__image");
 const previewModalCaption = previewModal.querySelector(".modal__preview-caption");
 const previewModalCloseBtn = previewModal.querySelector(".modal__close-btn--preview");
 
-
-
-
 const deleteCardModal = document.querySelector("#delete-card-modal");
-const deleteCardModalCloseBtn = deleteCardModal.querySelector(".modal__cancel-btn");
+const deleteCardModalCancelBtn = deleteCardModal.querySelector(".modal__cancel-btn");
 const deleteCardModalBtn = deleteCardModal.querySelector(".modal__submit-btn");
+const deleteCardModalCloseBtn = deleteCardModal.querySelector(".modal__close-btn") 
 
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
@@ -84,16 +82,17 @@ const getCardElement = (data) => {
     openModal(deleteCardModal);
   });
 
-   /* //deleteCardModalBtn submit
   deleteCardModalBtn.addEventListener("submit", () => {
     cardElement.remove();
-  })*/
+  })
+
+  deleteCardModalCancelBtn.addEventListener("click", () => {
+    closeModal(deleteCardModal);
+  })
 
   deleteCardModalCloseBtn.addEventListener("click", () => {
     closeModal(deleteCardModal);
   })
-
-
 
   cardImageElement.addEventListener("click", () => {
     openModal(previewModal);
