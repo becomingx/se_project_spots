@@ -57,7 +57,7 @@ class Api {
                 method: "PATCH",
                 headers: this._headers,
                 body: JSON.stringify({
-                    avatar
+                avatar
                 })
             })
             .then((res) => {
@@ -98,6 +98,7 @@ class Api {
                 return Promise.reject(err);
             }
         })
+<<<<<<< HEAD
     }   
 
     /*
@@ -153,6 +154,23 @@ class Api {
 
     }
    */
+=======
+    }
+    
+    /*
+    createCard() {
+
+    }
+
+    deleteCard() {
+
+    }
+
+    toggleLikeCard() {
+
+    }
+    */
+>>>>>>> parent of e1b9864 (se_project_se_project_spots-final delete modal complete)
 
   }
 
