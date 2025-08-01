@@ -74,13 +74,6 @@ class Api {
             }
         })
     }   
-    
-    /*
-    
-    POST /cards – Create a card: createCard() 
-    PUT /cards/:cardId/likes – Like a card: toggleLikeCard()
-    DELETE /cards/:cardId/likes – Dislike a card: toggleLikeCard()
-    */
 
     getUserCards() {
         return fetch(`${this._baseUrl}/cards`,
@@ -100,9 +93,8 @@ class Api {
             }
         })
     }   
-
     
-    createCard(name, link) {        
+    createCard({name, link}) {        
     return fetch(`${this._baseUrl}/cards`,
         {
             method: "POST", 
@@ -127,7 +119,7 @@ class Api {
     }
 
     removeCard(_id) {        
-        return fetch(`${this._baseUrl}v1/cards/${_id}`,
+        return fetch(`${this._baseUrl}/cards/${_id}`,
             { 
                 method: "DELETE",
                 headers: this._headers,
@@ -155,6 +147,5 @@ class Api {
     }
    */
 }
-    
 
   export default Api;
