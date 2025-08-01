@@ -256,7 +256,6 @@
 }
 
 #delete-card-modal .modal__submit-btn:hover {
-#delete-card-modal .modal__submit-btn:hover {
   opacity: 1;
   background-color: #FF3333;
   background-color: #FF3333;
@@ -277,9 +276,6 @@
   background-color: #FFF;
   border-color:#212121;
   color: #212121;
-  background-color: #FFF;
-  border-color:#212121;
-  color: #212121;
   cursor: pointer;
   font-family: Poppins;
   font-weight: 500;
@@ -290,8 +286,6 @@
 
 #delete-card-modal .modal__cancel-btn:hover {
   opacity: 1;
-  color: #FFF;
-  background-color: #212121;
   color: #FFF;
   background-color: #212121;
   cursor: pointer;
