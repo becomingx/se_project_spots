@@ -84,15 +84,28 @@
 }
 
 
+
+#edit-avatar-modal .modal__title {
+  width: 630;
+  height: 162;
+  gap: 32px;
+}
+
+#edit-avatar-modal .modal__form {
+  width: 630;
+  height: 162;
+  gap: 32px;
+}
+
 #edit-avatar-modal .modal__container {
-width: 730px;
-height: 298px;
-border-radius: 8px;
-padding-top: 32px;
-padding-right: 50px;
-padding-bottom: 32px;
-padding-left: 50px;
-gap: 32px;
+  width: 730px;
+  height: 298px;
+  border-radius: 8px;
+  padding-top: 32px;
+  padding-right: 50px;
+  padding-bottom: 32px;
+  padding-left: 50px;
+  gap: 32px;
 }
 
 #edit-avatar-modal .modal__submit-btn {
@@ -107,8 +120,9 @@ gap: 32px;
 }
 
 #delete-card-modal .modal__title {
-  width: 590px;
+  width: auto;
   height: 24px;
+  margin-bottom: 0;
   font-family: Poppins;
   font-weight: 500;
   font-style: Medium;
@@ -118,9 +132,14 @@ gap: 32px;
   text-align: center;
 }
 
+#delete-card-modal .modal__title-writing {
+  font-size: 24px;
+  text-align: center;
+}
+
 #delete-card-modal .modal__container {
   display: flex;
-  justify-items: center;
+  justify-content: center;
   gap: 32px;
   width: 630px;
   height: 172px;
@@ -131,10 +150,17 @@ gap: 32px;
   padding-left: 20px;
 }
 
+#delete-card-modal .modal__form {
+  display: flex;
+  width: auto;
+  height: 52px;
+  gap: 20px;
+}
+
 #delete-card-modal .btn-container {
   display: flex;
-  justify-items: center;
-  width: 332px;
+  justify-content: center;
+  width: auto;
   height: 52px;
   gap: 20px;
 }
@@ -145,11 +171,18 @@ gap: 32px;
   left: 100%;
   border-style: none;
   color: #fff;
+  background-image: url(../images/deleteModalClose.svg);
   background-color: transparent;
   border-radius: 0;
-  opacity: 1;
   top: 0;
   right: 0;
+}
+
+#delete-card-modal .modal__close-btn:hover {
+  opacity: 1;
+  background-color: transparent;
+  cursor: pointer;
+  transition: visibility 0.3s ease-in, opacity 0.3s ease-out;
 }
 
 #delete-card-modal .modal__submit-btn {
@@ -161,10 +194,10 @@ gap: 32px;
   padding-right: 32px;
   padding-bottom: 18px;
   padding-left: 32px;
+  opacity: 1;
   gap: 8px;
-  background-color: #000;
-  border-color:black;
-  color: rgba(252, 245, 229, 1);
+  background-color: #FF6565;
+  color: #212121;
   cursor: pointer;
   font-family: Poppins;
   font-weight: 500;
@@ -173,11 +206,10 @@ gap: 32px;
   letter-spacing: 0%;
 }
 
-.delete-card-modal .modal__submit-btn:hover {
+#delete-card-modal .modal__submit-btn:hover {
   opacity: 1;
-  background-color: transparent;
+  background-color: #FF3333;
   cursor: pointer;
-  transition: visibility 0.3s ease-in, opacity 0.3s ease-out;
 }
 
 #delete-card-modal .modal__cancel-btn {
@@ -188,11 +220,11 @@ gap: 32px;
   padding-right: 32px;
   padding-bottom: 18px;
   padding-left: 32px;
-  border-style: none;
+  opacity: 1;
   gap: 8px;
-  background-color: #000;
-  border-color:black;
-  color: rgba(252, 245, 229, 1);
+  background-color: #FFF;
+  border-color:#212121;
+  color: #212121;
   cursor: pointer;
   font-family: Poppins;
   font-weight: 500;
@@ -203,9 +235,9 @@ gap: 32px;
 
 #delete-card-modal .modal__cancel-btn:hover {
   opacity: 1;
-  background-color: transparent;
+  color: #FFF;
+  background-color: #212121;
   cursor: pointer;
-  transition: visibility 0.3s ease-in, opacity 0.3s ease-out;
 }
 
 .modal__image {
@@ -228,6 +260,16 @@ gap: 32px;
   line-height: 32px;
   font-size: 32px;
   margin-top: 0;
+}
+
+.modal__title-writing {
+  font-family: Poppins;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 32px;
+  leading-trim: NONE;
+  line-height: 100%;
+  letter-spacing: 0%;
 }
 
 .modal__close-btn {
@@ -291,8 +333,8 @@ gap: 32px;
 }
 
 .modal__submit-btn {
-  background-color: #000;
-  color: rgba(252, 245, 229, 1);
+  background-color: #212121;
+  color:#FCF5E5;
   gap: 8px;
   width: 156px;
   height: 52px;

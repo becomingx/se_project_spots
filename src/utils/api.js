@@ -8,13 +8,6 @@ class Api {
         return Promise.all([this.getUserCards(), this.getUserInfo()]);
     }
 
-    /*
-    API endpoints: User routes
-    GET /users/me – Get the current user’s info: getUserInfo()
-    PATCH /users/me – Update your profile information: editUserInfo()
-    PATCH /users/me/avatar – Update avatar: editUserAvatar()
-    */
-    
     getUserInfo() {
         return fetch(`${this._baseUrl}/users/me`,
             { 
@@ -64,7 +57,7 @@ class Api {
                 method: "PATCH",
                 headers: this._headers,
                 body: JSON.stringify({
-                avatar
+                    avatar
                 })
             })
             .then((res) => {
@@ -80,15 +73,6 @@ class Api {
             }
         })
     }   
-    
-    /*
-    API endpoints: Card routes
-    GET /cards – Get all cards: getUserCards()
-    POST /cards – Create a card: createCard() 
-    DELETE /cards/:cardId – Delete a card: deleteCard() 
-    PUT /cards/:cardId/likes – Like a card: toggleLikeCard()
-    DELETE /cards/:cardId/likes – Dislike a card: toggleLikeCard()
-    */
 
     getUserCards() {
         return fetch(`${this._baseUrl}/cards`,
@@ -107,21 +91,57 @@ class Api {
                 return Promise.reject(err);
             }
         })
+    }   
+
+    createCard({ name, link }) { 
+        return fetch(`${this._baseUrl}/cards`, {
+            method: "POST",
+            headers: this._headers,
+            body: JSON.stringify({
+                name,
+                link
+            })
+        })
+        .then((res) => {
+            if (res.ok) {
+                return res.json();
+            }
+            return Promise.reject(`Error: ${res.status}`);
+        })
+        .then((data) => {
+            return data;
+        })
+        .catch((err) => {
+            console.error(err);
+            return Promise.reject(err);
+        });
+    }
+
+    removeCard(_id) {        
+        return fetch(`${this._baseUrl}/cards/${_id}`,
+            { 
+                method: "DELETE",
+                headers: this._headers,
+            })
+            .then((res) => {
+                if (res.ok) {
+                return res;
+            }
+            return Promise.reject(res.status);
+        })
+        .catch((err) => {
+            if (err) {
+                console.error(err);
+                return Promise.reject(err);
+            }
+        })
     }
     
     /*
-    createCard() {
-
-    }
-
-    deleteCard() {
-
-    }
-
     toggleLikeCard() {
 
     }
-    */
+   */
 
   }
 

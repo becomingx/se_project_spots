@@ -52,15 +52,18 @@ const previewModalImageElement = previewModal.querySelector(".modal__image");
 const previewModalCaption = previewModal.querySelector(".modal__preview-caption");
 const previewModalCloseBtn = previewModal.querySelector(".modal__close-btn--preview");
 
-
-
-
 const deleteCardModal = document.querySelector("#delete-card-modal");
-const deleteCardModalCloseBtn = deleteCardModal.querySelector(".modal__cancel-btn");
+const deleteCardModalCancelBtn = deleteCardModal.querySelector(".modal__cancel-btn");
 const deleteCardModalBtn = deleteCardModal.querySelector(".modal__submit-btn");
+const deleteCardModalCloseBtn = deleteCardModal.querySelector(".modal__close-btn");
+const deleteCardModalForm = deleteCardModal.querySelector(".modal__form"); 
 
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
+
+let selectedCard;
+let selectedCardId;
+
 
 const getCardElement = (data) => {
   const cardElement = cardTemplate.content
@@ -80,20 +83,9 @@ const getCardElement = (data) => {
     likeBtn.classList.toggle("card__like-btn-liked");
   });
 
-  deleteBtn.addEventListener("click", () => {
-    openModal(deleteCardModal);
+  deleteBtn.addEventListener("click", (evt) => {
+    handleDeleteCard(cardElement, data);
   });
-
-   /* //deleteCardModalBtn submit
-  deleteCardModalBtn.addEventListener("submit", () => {
-    cardElement.remove();
-  })*/
-
-  deleteCardModalCloseBtn.addEventListener("click", () => {
-    closeModal(deleteCardModal);
-  })
-
-
 
   cardImageElement.addEventListener("click", () => {
     openModal(previewModal);
@@ -104,6 +96,7 @@ const getCardElement = (data) => {
 
   return cardElement;
 };
+
 
 const handleEscapeKey = (event) => {
   if (event.key === "Escape") {
@@ -158,56 +151,77 @@ const handleEditModalFormSubmit = (evt) => {
 
 const handleAddModalFormSubmit = (evt) => {
   evt.preventDefault();
-
   const inputValues = { 
     name: addModalNameInput.value, 
     link: addModalCardInput.value
   };
-
-  const addCardElement = getCardElement(inputValues);
-  cardsList.prepend(addCardElement);
-  evt.target.reset();
-  closeModal(addModal);
-  disableButton(addModalSubmitBtn, settings);
+  api.createCard(inputValues)
+    .then((newCardData) => {
+      const addCardElement = getCardElement(newCardData);
+      cardsList.prepend(addCardElement);
+      evt.target.reset();
+      closeModal(addModal);
+      disableButton(addModalSubmitBtn, settings);
+    })
+    .catch((error) => {
+      console.error("Error creating card:", error);
+    });
 };
 
+const handleDeleteCard = (cardElement, data) => {
+  selectedCard = cardElement;
+  selectedCardId = data._id; 
+  openModal(deleteCardModal);
+};
 
+const handleDeleteCardSubmit = () => {
+  api.removeCard(selectedCardId)
+  .then(() => {
+    selectedCard.remove();
+    closeModal(deleteCardModal);
+  }).catch(console.error);  
+}
+
+deleteCardModalBtn.addEventListener("click", () => {
+  openModal(deleteCardModal);
+})
 avatarModalBtn.addEventListener("click", () => {
   openModal(avatarModal);
 });
-
 profileAddBtn.addEventListener("click", () => {
   openModal(addModal); 
 });
-
 profileEditBtn.addEventListener("click", () => {
   editModalNameInput.value = profileName.textContent;
   editModalDescriptionInput.value = profileDescription.textContent;
   openModal(editModal);
   resetValidation(editModal, [editModalNameInput, editModalDescriptionInput], editModalSubmitBtn, settings);
 });
-
 previewModalCloseBtn.addEventListener("click", () => {
   closeModal(previewModal);
 });
-
 addModalCloseBtn.addEventListener("click", () => {
   closeModal(addModal);
 });
 editModalCloseBtn.addEventListener("click", () => {
   closeModal(editModal);
 });
-
 avatarModalCloseBtn.addEventListener("click",()  => {
   closeModal(avatarModal);
 });
-
-
+deleteCardModalCancelBtn.addEventListener("click", () => {
+  closeModal(deleteCardModal);
+})
+deleteCardModalCloseBtn.addEventListener("click", () => {
+  closeModal(deleteCardModal);
+})
 
 
 editModalFormElement.addEventListener("submit", handleEditModalFormSubmit);
 addModalFormElement.addEventListener("submit", handleAddModalFormSubmit);
 avatarModalFormElement.addEventListener("submit", handleAvatarModalFormSubmit);
+deleteCardModalForm.addEventListener("submit", handleDeleteCardSubmit);
+
 
 api.getAppInfo()
 .then(([cards, userInfo]) => {
@@ -220,10 +234,5 @@ api.getAppInfo()
   profileAvatar.src = userInfo.avatar;
 })
 .catch(console.error);
-
-/*
- Note that the array of cards returned by the server will be empty until
-  you’ve added cards to it with the POST /cards request.
-*/
 
 enableValidation(settings); 
