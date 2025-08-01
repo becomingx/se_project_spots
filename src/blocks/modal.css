@@ -83,8 +83,6 @@
   margin: 0 auto;
 }
 
-
-
 #edit-avatar-modal .modal__title {
   width: 630;
   height: 162;
@@ -96,7 +94,6 @@
   height: 162;
   gap: 32px;
 }
-
 
 #edit-avatar-modal .modal__title {
   width: 630;
@@ -111,14 +108,6 @@
 }
 
 #edit-avatar-modal .modal__container {
-  width: 730px;
-  height: 298px;
-  border-radius: 8px;
-  padding-top: 32px;
-  padding-right: 50px;
-  padding-bottom: 32px;
-  padding-left: 50px;
-  gap: 32px;
   width: 730px;
   height: 298px;
   border-radius: 8px;
@@ -142,9 +131,7 @@
 
 #delete-card-modal .modal__title {
   width: auto;
-  width: auto;
   height: 24px;
-  margin-bottom: 0;
   margin-bottom: 0;
   font-family: Poppins;
   font-weight: 500;
@@ -160,14 +147,8 @@
   text-align: center;
 }
 
-#delete-card-modal .modal__title-writing {
-  font-size: 24px;
-  text-align: center;
-}
-
 #delete-card-modal .modal__container {
   display: flex;
-  justify-content: center;
   justify-content: center;
   gap: 32px;
   width: 630px;
@@ -186,17 +167,8 @@
   gap: 20px;
 }
 
-#delete-card-modal .modal__form {
-  display: flex;
-  width: auto;
-  height: 52px;
-  gap: 20px;
-}
-
 #delete-card-modal .btn-container {
   display: flex;
-  justify-content: center;
-  width: auto;
   justify-content: center;
   width: auto;
   height: 52px;
@@ -210,18 +182,10 @@
   border-style: none;
   color: #fff;
   background-image: url(../images/deleteModalClose.svg);
-  background-image: url(../images/deleteModalClose.svg);
   background-color: transparent;
   border-radius: 0;
   top: 0;
   right: 0;
-}
-
-#delete-card-modal .modal__close-btn:hover {
-  opacity: 1;
-  background-color: transparent;
-  cursor: pointer;
-  transition: visibility 0.3s ease-in, opacity 0.3s ease-out;
 }
 
 #delete-card-modal .modal__close-btn:hover {
@@ -241,10 +205,7 @@
   padding-bottom: 18px;
   padding-left: 32px;
   opacity: 1;
-  opacity: 1;
   gap: 8px;
-  background-color: #FF6565;
-  color: #212121;
   background-color: #FF6565;
   color: #212121;
   cursor: pointer;
@@ -258,7 +219,6 @@
 #delete-card-modal .modal__submit-btn:hover {
   opacity: 1;
   background-color: #FF3333;
-  background-color: #FF3333;
   cursor: pointer;
 }
 
@@ -270,7 +230,6 @@
   padding-right: 32px;
   padding-bottom: 18px;
   padding-left: 32px;
-  opacity: 1;
   opacity: 1;
   gap: 8px;
   background-color: #FFF;
@@ -311,16 +270,6 @@
   line-height: 32px;
   font-size: 32px;
   margin-top: 0;
-}
-
-.modal__title-writing {
-  font-family: Poppins;
-  font-weight: 500;
-  font-style: Medium;
-  font-size: 32px;
-  leading-trim: NONE;
-  line-height: 100%;
-  letter-spacing: 0%;
 }
 
 .modal__title-writing {
@@ -394,8 +343,6 @@
 }
 
 .modal__submit-btn {
-  background-color: #000;
-  color: #212121;
   background-color: #212121;
   color:#FCF5E5;
   gap: 8px;
