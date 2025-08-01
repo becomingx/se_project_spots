@@ -83,6 +83,20 @@
   margin: 0 auto;
 }
 
+
+
+#edit-avatar-modal .modal__title {
+  width: 630;
+  height: 162;
+  gap: 32px;
+}
+
+#edit-avatar-modal .modal__form {
+  width: 630;
+  height: 162;
+  gap: 32px;
+}
+
 #edit-avatar-modal .modal__container {
   width: 730px;
   height: 298px;
@@ -108,12 +122,18 @@
 #delete-card-modal .modal__title {
   width: auto;
   height: 24px;
+  margin-bottom: 0;
   font-family: Poppins;
   font-weight: 500;
   font-style: Medium;
   font-size: 24px;
   line-height: 100%;
   letter-spacing: 0%;
+  text-align: center;
+}
+
+#delete-card-modal .modal__title-writing {
+  font-size: 24px;
   text-align: center;
 }
 
@@ -240,6 +260,16 @@
   line-height: 32px;
   font-size: 32px;
   margin-top: 0;
+}
+
+.modal__title-writing {
+  font-family: Poppins;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 32px;
+  leading-trim: NONE;
+  line-height: 100%;
+  letter-spacing: 0%;
 }
 
 .modal__close-btn {

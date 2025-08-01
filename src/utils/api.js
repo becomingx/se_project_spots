@@ -7,13 +7,6 @@ class Api {
     getAppInfo() {
         return Promise.all([this.getUserCards(), this.getUserInfo()]);
     }
-
-    /*
-    API endpoints: User routes
-    GET /users/me – Get the current user’s info: getUserInfo()
-    PATCH /users/me – Update your profile information: editUserInfo()
-    PATCH /users/me/avatar – Update avatar: editUserAvatar()
-    */
     
     getUserInfo() {
         return fetch(`${this._baseUrl}/users/me`,
@@ -82,10 +75,8 @@ class Api {
     }   
     
     /*
-    API endpoints: Card routes
-    GET /cards – Get all cards: getUserCards()
+    
     POST /cards – Create a card: createCard() 
-    DELETE /cards/:cardId – Delete a card: deleteCard() 
     PUT /cards/:cardId/likes – Like a card: toggleLikeCard()
     DELETE /cards/:cardId/likes – Dislike a card: toggleLikeCard()
     */
@@ -109,6 +100,31 @@ class Api {
         })
     }   
 
+    /*
+    createCard(name, link) {        
+    return fetch(`${this._baseUrl}/cards`,
+        {
+            method: "POST", 
+            headers: this._headers,
+            body: JSON.stringify({
+                name,
+                link
+            })
+        })
+        .then((res) => {
+            if (res.ok) {
+            return res.json();
+        }
+        return Promise.reject(res.status);
+    })
+    .catch((err) => {
+        if (err) {
+            console.error(err);
+            return Promise.reject(err);
+        }
+    })
+    }*/
+
     removeCard(_id) {        
         return fetch(`${this._baseUrl}v1/cards/${_id}`,
             { 
@@ -119,7 +135,10 @@ class Api {
                 if (res.ok) {
                 return res;
             }
+            console.log("Base URL:", this._baseUrl);
+
             return Promise.reject(res.status);
+
         })
         .catch((err) => {
             if (err) {
@@ -130,13 +149,7 @@ class Api {
     }
     
     /*
-    }
-
     toggleLikeCard() {
-
-    }
- 
-    createCard() {
 
     }
    */

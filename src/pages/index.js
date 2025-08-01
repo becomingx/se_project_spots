@@ -60,7 +60,6 @@ const deleteCardModalForm = deleteCardModal.querySelector(".modal__form");
 
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
-
 let selectedCard;
 let selectedCardId;
 
@@ -238,6 +237,7 @@ api.getAppInfo()
   profileAvatar.src = userInfo.avatar;
 })
 .catch(console.error);
+
 
 enableValidation(settings); 
 
