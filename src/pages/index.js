@@ -54,24 +54,15 @@ const previewModalCloseBtn = previewModal.querySelector(".modal__close-btn--prev
 
 const deleteCardModal = document.querySelector("#delete-card-modal");
 const deleteCardModalCancelBtn = deleteCardModal.querySelector(".modal__cancel-btn");
-const deleteCardModalCancelBtn = deleteCardModal.querySelector(".modal__cancel-btn");
 const deleteCardModalBtn = deleteCardModal.querySelector(".modal__submit-btn");
-const deleteCardModalCloseBtn = deleteCardModal.querySelector(".modal__close-btn") 
 const deleteCardModalCloseBtn = deleteCardModal.querySelector(".modal__close-btn");
 const deleteCardModalForm = deleteCardModal.querySelector(".modal__form"); 
 
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
-<<<<<<< HEAD
-let selectedCard;
-let selectedCardId;
-
-=======
->>>>>>> parent of e1b9864 (se_project_se_project_spots-final delete modal complete)
 
 let selectedCard;
 let selectedCardId;
-
 
 const getCardElement = (data) => {
   const cardElement = cardTemplate.content
@@ -257,15 +248,5 @@ api.getAppInfo()
   profileAvatar.src = userInfo.avatar;
 })
 .catch(console.error);
-
-<<<<<<< HEAD
-
-enableValidation(settings); 
-=======
-/*
- Note that the array of cards returned by the server will be empty until
-  you’ve added cards to it with the POST /cards request.
-*/
->>>>>>> parent of e1b9864 (se_project_se_project_spots-final delete modal complete)
 
 enableValidation(settings); 
