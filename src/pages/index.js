@@ -10,6 +10,7 @@ import {
   resetValidation,
   enableValidation
 } from "/src/scripts/validation.js";
+import {setSaveButtonText} from "/src/utils/helpers.js";
 import "/src/pages/index.css";
 import Api from "/src/utils/api.js";
 
@@ -113,6 +114,7 @@ const getCardElement = (data) => {
 };
 
 
+//handlers
 const handleEscapeKey = (evt) => {
   if (evt.key === "Escape") {
     const activeModal = document.querySelector(".modal_opened");
@@ -140,25 +142,10 @@ const closeModal = (modal) => {
   modal.removeEventListener("mousedown", handleOverlayClick);
 };
 
-
-/*
-notify the user that the upload process is underway by:
-
-Changing the button text to "Saving...". 
-This should be shown until the data has finished uploading.
-
-Do this for:
-
-add card modal
-addModalSubmitBtn
-
-
-*/
-
 const handleAvatarModalFormSubmit = (evt) => {
   evt.preventDefault();
   const avatarSubmit = avatarModalSubmitBtn;
-  avatarSubmit.textContent = "Saving...";
+  setSaveButtonText(avatarSubmit, true, "Saving...", "Save");
 
   api.editUserAvatar({avatar: avatarModalUrlInput.value})
     .then((data) => {
@@ -166,15 +153,12 @@ const handleAvatarModalFormSubmit = (evt) => {
       closeModal(avatarModal);
     })
     .catch(console.error)
-    .finally(() => {
-      avatarSubmit.textContent = "Save";
-    });
 };
 
 const handleEditModalFormSubmit = (evt) => {
   evt.preventDefault();
   const editSubmit = editModalSubmitBtn;
-  editSubmit.textContent = "Saving...";
+  setSaveButtonText(editSubmit, true, "Saving...", "Save");
 
   api.editUserInfo({name: editModalNameInput.value, about: editModalDescriptionInput.value})
   .then((data) => {  
@@ -183,15 +167,13 @@ const handleEditModalFormSubmit = (evt) => {
     closeModal(editModal);
   })
   .catch(console.error)
-  .finally(() => {
-    editSubmit.textContent = "Save";
-  });
+
 };
 
 const handleAddModalFormSubmit = (evt) => {
   evt.preventDefault();
   const addSubmit = addModalSubmitBtn;
-  addSubmit.textContent = "Saving...";
+  setSaveButtonText(addSubmit, true, "Saving...", "Save");
 
   const inputValues = { 
     name: addModalNameInput.value, 
@@ -209,9 +191,6 @@ const handleAddModalFormSubmit = (evt) => {
     .catch((error) => {
       console.error("Error creating card:", error);
     })
-    .finally(() => {
-      addSubmit.textContent = "Save";
-    });
 };
 
 const handleDeleteCard = (cardElement, data) => {
@@ -221,12 +200,16 @@ const handleDeleteCard = (cardElement, data) => {
 };
 
 const handleDeleteCardSubmit = () => {
+  const deleteSubmit = deleteCardModalBtn;
+  setSaveButtonText(deleteSubmit, true, "Deleting...", "Delete");
+  
   api.removeCard(selectedCardId)
   .then(() => {
     selectedCard.remove();
     closeModal(deleteCardModal);
-  }).catch(console.error);  
-}
+  })
+  .catch(console.error);  
+};
 
 const handleLikeBtnToggle = (evt, cardId) => {  
   const isLiked = evt.target.classList.contains("card__like-btn-liked");
@@ -237,9 +220,9 @@ const handleLikeBtnToggle = (evt, cardId) => {
     .catch((error) => {
       console.error("Error liking card:", error);
     });
-}
+};
 
-
+//event listeners
 deleteCardModalBtn.addEventListener("click", () => {
   openModal(deleteCardModal);
 })
@@ -273,8 +256,6 @@ deleteCardModalCancelBtn.addEventListener("click", () => {
 deleteCardModalCloseBtn.addEventListener("click", () => {
   closeModal(deleteCardModal);
 })
-
-
 editModalFormElement.addEventListener("submit", handleEditModalFormSubmit);
 addModalFormElement.addEventListener("submit", handleAddModalFormSubmit);
 avatarModalFormElement.addEventListener("submit", handleAvatarModalFormSubmit);
@@ -282,15 +263,16 @@ deleteCardModalForm.addEventListener("submit", handleDeleteCardSubmit);
 
 
 api.getAppInfo()
-.then(([cards, userInfo]) => {
-  cards.forEach((item) => {
-    const cardEl = getCardElement(item);
-    cardsList.append(cardEl);
-  });
-  profileName.textContent = userInfo.name;
-  profileDescription.textContent = userInfo.about;
-  profileAvatar.src = userInfo.avatar;
-})
-.catch(console.error);
+  .then(([cards, userInfo]) => {
+    cards.forEach((item) => {
+      const cardEl = getCardElement(item);
+      cardsList.append(cardEl);
+    });
+    profileName.textContent = userInfo.name;
+    profileDescription.textContent = userInfo.about;
+    profileAvatar.src = userInfo.avatar;
+  })
+  .catch(console.error);
 
+  
 enableValidation(settings); 
