@@ -25,6 +25,16 @@
   margin: 0 auto;
 }
 
+.modal__title-writing {
+  font-family: Poppins;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 32px;
+  leading-trim: NONE;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+
 .modal__form {
   display:flex;
   box-sizing: border-box;
@@ -85,13 +95,13 @@
 
 #edit-avatar-modal .modal__title {
   width: 630px;
-  height: 162px;
+  height: auto;
   gap: 32px;
 }
 
 #edit-avatar-modal .modal__form {
   width: 630px;
-  height: 162px;
+  height: auto;
   gap: 32px;
 }
 
@@ -109,24 +119,13 @@
 #edit-avatar-modal .modal__submit-btn {
   width: 156px;
   height: 52px;
-  border-radius: 8px;
-  padding-top: 18px;
-  padding-right: 32px;
-  padding-bottom: 18px;
-  padding-left: 32px;
-  gap: 8px;
 }
 
 #delete-card-modal .modal__title {
   width: auto;
   height: 24px;
   margin-bottom: 0;
-  font-family: Poppins;
-  font-weight: 500;
-  font-style: Medium;
   font-size: 24px;
-  line-height: 100%;
-  letter-spacing: 0%;
   text-align: center;
 }
 
@@ -184,24 +183,13 @@
 }
 
 #delete-card-modal .modal__submit-btn {
-  width: 156px;
-  height: 52px;
+  /*width: 156px;
+  height: 52px;*/
   border-style: none;
-  border-radius: 8px;
-  padding-top: 18px;
-  padding-right: 32px;
-  padding-bottom: 18px;
-  padding-left: 32px;
   opacity: 1;
-  gap: 8px;
   background-color: #FF6565;
   color: #212121;
   cursor: pointer;
-  font-family: Poppins;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 16px;
-  letter-spacing: 0%;
 }
 
 #delete-card-modal .modal__submit-btn:hover {
@@ -378,6 +366,10 @@
     width: 300px;
     height: auto;
   }
+
+  .modal__title-writing {
+    font-size: 20px;
+  }
   
   .modal__label {
     width: 276px;
@@ -419,9 +411,6 @@
   .modal__submit-btn {
     width: 276px;
     height: auto;
-    padding: 18px 32px;
-    gap: 8px;
-    border-radius: 8px;
   }
 
   .modal__title {
@@ -462,19 +451,6 @@
 
   #edit-avatar-modal .modal__submit-btn {
     width: auto;
-    height: 52px;
-    padding: 18px 32px;
-    gap: 8px;
-    border-radius: 8px;
-  }
-
-  #edit-avatar-modal .modal__title-writing {
-    font-family: Poppins;
-    font-weight: 500;
-    font-style: Medium;
-    font-size: 20px;
-    line-height: 120%;
-    letter-spacing: 0%;
   }
   
   #edit-avatar-modal .modal__form {
@@ -503,6 +479,12 @@
 
   #delete-card-modal .modal__container {
     max-width: 100%;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
     width: 300px;
     height: auto;
     gap: 20px;
@@ -516,9 +498,6 @@
   }
   
   #delete-card-modal .modal__title-writing {
-    font-family: Poppins;
-    font-weight: 500;
-    font-style: Medium;
     font-size: 20px;
     text-align: center;
   }
@@ -540,18 +519,14 @@
   }
   
   #delete-card-modal .modal__close-btn {
-    display: flex;
-    flex-direction: column;
-    /*top: 158px;
-    right: 264px;*/
+    top: -40px;
+    left: 90%;
     opacity: 1;
   }
   
   #delete-card-modal .modal__submit-btn {
     width: 156px;
     height: 52px;
-    gap: 8px;
-    border-radius: 8px;
   }
   
   #delete-card-modal .modal__cancel-btn {

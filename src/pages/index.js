@@ -112,8 +112,8 @@ const getCardElement = (data) => {
 };
 
 
-const handleEscapeKey = (event) => {
-  if (event.key === "Escape") {
+const handleEscapeKey = (evt) => {
+  if (evt.key === "Escape") {
     const activeModal = document.querySelector(".modal_opened");
     if (activeModal) {
       closeModal(activeModal);
@@ -121,9 +121,9 @@ const handleEscapeKey = (event) => {
   };
 };
 
-const handleOverlayClick = (event) => {
-  if (event.target.classList.contains("modal_opened")) {
-    closeModal(event.target);
+const handleOverlayClick = (evt) => {
+  if (evt.target.classList.contains("modal_opened")) {
+    closeModal(evt.target);
   };
 };
 
@@ -139,6 +139,18 @@ const closeModal = (modal) => {
   modal.removeEventListener("mousedown", handleOverlayClick);
 };
 
+
+/*
+notify the user that the upload process is underway by:
+
+Changing the button text to "Saving...". 
+This should be shown until the data has finished uploading.
+
+Do this for:
+edit profile modal
+add card modal
+update avatar modal
+*/
 
 const handleAvatarModalFormSubmit = (evt) => {
   evt.preventDefault();
