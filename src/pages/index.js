@@ -32,6 +32,7 @@ const avatarModalBtn = document.querySelector(".profile__edit-avatar-btn");
 const avatarModalFormElement = avatarModal.querySelector(".modal__form");
 const avatarModalCloseBtn = avatarModal.querySelector(".modal__close-btn");
 const avatarModalUrlInput = avatarModal.querySelector("#edit-avatar-url-input");
+const avatarModalSubmitBtn = avatarModal.querySelector(".modal__submit-btn");
 
 const editModal = document.querySelector("#edit-modal");
 const editModalFormElement = editModal.querySelector(".modal__form");
@@ -147,24 +148,33 @@ Changing the button text to "Saving...".
 This should be shown until the data has finished uploading.
 
 Do this for:
-edit profile modal
+
 add card modal
-update avatar modal
+addModalSubmitBtn
+
+
 */
 
 const handleAvatarModalFormSubmit = (evt) => {
   evt.preventDefault();
+  const avatarSubmit = avatarModalSubmitBtn;
+  avatarSubmit.textContent = "Saving...";
 
   api.editUserAvatar({avatar: avatarModalUrlInput.value})
     .then((data) => {
       profileAvatar.src = data.avatar;
       closeModal(avatarModal);
     })
-    .catch(console.error);
+    .catch(console.error)
+    .finally(() => {
+      avatarSubmit.textContent = "Save";
+    });
 };
 
 const handleEditModalFormSubmit = (evt) => {
   evt.preventDefault();
+  const editSubmit = editModalSubmitBtn;
+  editSubmit.textContent = "Saving...";
 
   api.editUserInfo({name: editModalNameInput.value, about: editModalDescriptionInput.value})
   .then((data) => {  
@@ -172,15 +182,22 @@ const handleEditModalFormSubmit = (evt) => {
     profileDescription.textContent = data.about;
     closeModal(editModal);
   })
-  .catch(console.error);
+  .catch(console.error)
+  .finally(() => {
+    editSubmit.textContent = "Save";
+  });
 };
 
 const handleAddModalFormSubmit = (evt) => {
   evt.preventDefault();
+  const addSubmit = addModalSubmitBtn;
+  addSubmit.textContent = "Saving...";
+
   const inputValues = { 
     name: addModalNameInput.value, 
     link: addModalCardInput.value
   };
+
   api.createCard(inputValues)
     .then((newCardData) => {
       const addCardElement = getCardElement(newCardData);
@@ -191,6 +208,9 @@ const handleAddModalFormSubmit = (evt) => {
     })
     .catch((error) => {
       console.error("Error creating card:", error);
+    })
+    .finally(() => {
+      addSubmit.textContent = "Save";
     });
 };
 
