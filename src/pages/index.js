@@ -78,8 +78,8 @@ const getCardElement = (data) => {
   cardImageElement.src = data.link;
   cardImageElement.alt = data.name;
 
-  likeBtn.addEventListener("click", () => {
-    likeBtn.classList.toggle("card__like-btn-liked");
+  likeBtn.addEventListener("click", (evt) => {
+    handleLikeBtnToggle(evt, data._id);
   });
 
   deleteBtn.addEventListener("click", () => {
@@ -195,6 +195,18 @@ const handleDeleteCardSubmit = () => {
     closeModal(deleteCardModal);
   }).catch(console.error);  
 }
+
+const handleLikeBtnToggle = (evt, cardId) => {  
+  const isLiked = evt.target.classList.contains("card__like-btn-liked");
+  api.toggleLikeCard(cardId, isLiked)
+    .then((updatedCard) => {
+      evt.target.classList.toggle("card__like-btn-liked");
+    })
+    .catch((error) => {
+      console.error("Error liking card:", error);
+    });
+}
+
 
 deleteCardModalBtn.addEventListener("click", () => {
   openModal(deleteCardModal);

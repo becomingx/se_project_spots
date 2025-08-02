@@ -19,13 +19,13 @@ class Api {
                 return res.json();
             }
             return Promise.reject(res.status);
-        })
-        .catch((err) => {
-            if (err) {
-                console.error(err);
-                return Promise.reject(err);
-            }
-        })
+            })
+            .catch((err) => {
+                if (err) {
+                    console.error(err);
+                    return Promise.reject(err);
+                }
+            })
     }
 
     editUserInfo({name, about}) {
@@ -40,16 +40,16 @@ class Api {
             })
             .then((res) => {
                 if (res.ok) {
-                return res.json();
-            }
-            return Promise.reject(res.status);
-        })
-        .catch((err) => {
-            if (err) {
-                console.error(err);
-                return Promise.reject(err);
-            }
-        })
+                    return res.json();
+                }
+                return Promise.reject(res.status);
+            })
+            .catch((err) => {
+                if (err) {
+                    console.error(err);
+                    return Promise.reject(err);
+                }
+            })
     }   
     
     editUserAvatar({avatar}) {
@@ -63,16 +63,16 @@ class Api {
             })
             .then((res) => {
                 if (res.ok) {
-                return res.json();
-            }
-            return Promise.reject(res.status);
-        })
-        .catch((err) => {
-            if (err) {
-                console.error(err);
-                return Promise.reject(err);
-            }
-        })
+                    return res.json();
+                }
+                return Promise.reject(res.status);
+            })
+            .catch((err) => {
+                if (err) {
+                    console.error(err);
+                    return Promise.reject(err);
+                }
+            })
     }   
 
     getUserCards() {
@@ -82,40 +82,40 @@ class Api {
             })
             .then((res) => {
                 if (res.ok) {
-                return res.json();
-            }
-            return Promise.reject(res.status);
-        })
-        .catch((err) => {
-            if (err) {
-                console.error(err);
-                return Promise.reject(err);
-            }
-        })
+                    return res.json();
+                }
+                return Promise.reject(res.status);
+            })
+            .catch((err) => {
+                if (err) {
+                    console.error(err);
+                    return Promise.reject(err);
+                }
+            })
     }   
     
     createCard({name, link}) {        
-    return fetch(`${this._baseUrl}/cards`,
-        {
-            method: "POST", 
-            headers: this._headers,
-            body: JSON.stringify({
-                name,
-                link
+        return fetch(`${this._baseUrl}/cards`,
+            {
+                method: "POST", 
+                headers: this._headers,
+                body: JSON.stringify({
+                    name,
+                    link
+                })
             })
-        })
-        .then((res) => {
-            if (res.ok) {
-            return res.json();
-        }
-        return Promise.reject(res.status);
-    })
-    .catch((err) => {
-        if (err) {
-            console.error(err);
-            return Promise.reject(err);
-        }
-    })
+            .then((res) => {
+                if (res.ok) {
+                    return res.json();
+                }
+                return Promise.reject(res.status);
+            })
+            .catch((err) => {
+             if (err) {
+                console.error(err);
+                return Promise.reject(err);
+                }
+            })
     }
 
     removeCard(_id) {        
@@ -126,26 +126,39 @@ class Api {
             })
             .then((res) => {
                 if (res.ok) {
-                return res;
-            }
-            console.log("Base URL:", this._baseUrl);
-
-            return Promise.reject(res.status);
-
-        })
-        .catch((err) => {
-            if (err) {
-                console.error(err);
-                return Promise.reject(err);
-            }
-        })
+                    return res;
+                }
+                return Promise.reject(res.status);
+            })
+            .catch((err) => {
+                if (err) {
+                    console.error(err);
+                    return Promise.reject(err);
+                }
+            })
     }
     
-    /*
-    toggleLikeCard() {
-
+    
+    toggleLikeCard(_id, isLiked) {
+        return fetch(`${this._baseUrl}/cards/${_id}/likes`,
+            { 
+                method: isLiked ? "DELETE" : "PUT",
+                headers: this._headers
+            })
+            .then((res) => {
+                if (res.ok) {
+                    return res;
+                }
+                return Promise.reject(res.status);
+            })
+            .catch((err) => {
+                if (err) {
+                    console.error(err);
+                    return Promise.reject(err);
+                }
+            })
     }
-   */
+            
 }
 
   export default Api;
