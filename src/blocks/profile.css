@@ -171,6 +171,29 @@
     margin-top: 12px;
   }
 
+  .profile__avatar-container {
+    height: 80px;
+    width: 80px;
+    margin-top: 12px;
+  }
+
+  .profile__edit-avatar-btn {
+    width: 24px;
+    height: 24px;
+    top: 52px;
+    left: 52px;
+    gap: 8px;
+    opacity: .6;
+    border-radius: 6px;
+    padding: 4px;
+    margin-top: 12px;
+    background: #212121;
+  }
+
+  .profile__edit-avatar-btn::after {
+    content: none;
+  }
+
   .profile {
     flex-direction: column;
     width: 288px;

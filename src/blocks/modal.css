@@ -84,26 +84,14 @@
 }
 
 #edit-avatar-modal .modal__title {
-  width: 630;
-  height: 162;
+  width: 630px;
+  height: 162px;
   gap: 32px;
 }
 
 #edit-avatar-modal .modal__form {
-  width: 630;
-  height: 162;
-  gap: 32px;
-}
-
-#edit-avatar-modal .modal__title {
-  width: 630;
-  height: 162;
-  gap: 32px;
-}
-
-#edit-avatar-modal .modal__form {
-  width: 630;
-  height: 162;
+  width: 630px;
+  height: 162px;
   gap: 32px;
 }
 
@@ -390,7 +378,7 @@
     width: 300px;
     height: auto;
   }
-
+  
   .modal__label {
     width: 276px;
   }
@@ -449,6 +437,68 @@
     font-size: 16px;
     font-weight: 500;
     line-height: 17.6px;
+  }
+
+  #edit-avatar-modal .modal__container {
+    width: 300px;
+    height: auto;
+    gap: 12px;
+    border-radius: 8px;
+    padding: 12px;    
+  }
+
+  #edit-avatar-modal .modal__title {
+    justify-content: space-between;
+    width: auto;
+    height: 40px;
+  }
+
+  #edit-avatar-modal .modal__close-btn {
+    justify-items:flex-end;
+    width: 40px;
+    height: 40px;
+    opacity: .4;
+  }
+
+  #edit-avatar-modal .modal__submit-btn {
+    width: auto;
+    height: 52px;
+    padding: 18px 32px;
+    gap: 8px;
+    border-radius: 8px;
+  }
+
+  #edit-avatar-modal .modal__title-writing {
+    font-family: Poppins;
+    font-weight: 500;
+    font-style: Medium;
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: 0%;
+  }
+  
+  #edit-avatar-modal .modal__form {
+    width: auto;
+    height: auto;
+    gap: 20px;
+  }
+
+  #edit-avatar-modal .modal__label {
+    width: auto;
+    height: auto;
+    gap: 8px;
+  }
+
+  #edit-avatar-modal .modal__input {
+    width: auto;
+    height: auto; 
+    padding-top: 16px;
+    padding-right: 12px;
+    padding-bottom: 16px;
+    padding-left: 12px;
+    gap: 10px;
+    border-radius: 8px;
+    border-width: 1px;
   }
 
 
