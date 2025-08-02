@@ -145,7 +145,7 @@ const closeModal = (modal) => {
 const handleAvatarModalFormSubmit = (evt) => {
   evt.preventDefault();
   const avatarSubmit = avatarModalSubmitBtn;
-  setSaveButtonText(avatarSubmit, true, "Saving...", "Save");
+  setSaveButtonText(avatarSubmit, true);
 
   api.editUserAvatar({avatar: avatarModalUrlInput.value})
     .then((data) => {
@@ -153,12 +153,15 @@ const handleAvatarModalFormSubmit = (evt) => {
       closeModal(avatarModal);
     })
     .catch(console.error)
+    .finally(() => {
+      setSaveButtonText(avatarSubmit, false);
+    });
 };
 
 const handleEditModalFormSubmit = (evt) => {
   evt.preventDefault();
   const editSubmit = editModalSubmitBtn;
-  setSaveButtonText(editSubmit, true, "Saving...", "Save");
+  setSaveButtonText(editSubmit, true);
 
   api.editUserInfo({name: editModalNameInput.value, about: editModalDescriptionInput.value})
   .then((data) => {  
@@ -167,13 +170,16 @@ const handleEditModalFormSubmit = (evt) => {
     closeModal(editModal);
   })
   .catch(console.error)
+  .finally(() => {
+    setSaveButtonText(editSubmit, false);
+  });
 
 };
 
 const handleAddModalFormSubmit = (evt) => {
   evt.preventDefault();
   const addSubmit = addModalSubmitBtn;
-  setSaveButtonText(addSubmit, true, "Saving...", "Save");
+  setSaveButtonText(addSubmit, true);
 
   const inputValues = { 
     name: addModalNameInput.value, 
@@ -191,6 +197,9 @@ const handleAddModalFormSubmit = (evt) => {
     .catch((error) => {
       console.error("Error creating card:", error);
     })
+    .finally(() => {
+      setSaveButtonText(addSubmit, false);
+    });
 };
 
 const handleDeleteCard = (cardElement, data) => {
@@ -201,14 +210,17 @@ const handleDeleteCard = (cardElement, data) => {
 
 const handleDeleteCardSubmit = () => {
   const deleteSubmit = deleteCardModalBtn;
-  setSaveButtonText(deleteSubmit, true, "Deleting...", "Delete");
+  setSaveButtonText(deleteSubmit, true, "Delete", "Deleting...");
   
   api.removeCard(selectedCardId)
   .then(() => {
     selectedCard.remove();
     closeModal(deleteCardModal);
   })
-  .catch(console.error);  
+  .catch(console.error)
+  .finally(() => {
+    setSaveButtonText(deleteSubmit, false, "Delete", "Deleting...");
+  });  
 };
 
 const handleLikeBtnToggle = (evt, cardId) => {  
@@ -274,5 +286,5 @@ api.getAppInfo()
   })
   .catch(console.error);
 
-  
+
 enableValidation(settings); 

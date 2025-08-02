@@ -1,8 +1,12 @@
-export function setSaveButtonText(btn, isLoading, loadingText, defaultText) {
-    {name: nameInput.value}
+export function setSaveButtonText(
+    btn, 
+    isLoading,
+    defaultText = "Save", 
+    loadingText = "Saving...") 
+{
     if (isLoading) {
-    //set loading text
+        btn.textContent = loadingText;
+    } else {
+        btn.textContent = defaultText;
     }
-    //set default text
-    
-}
+};
