@@ -501,5 +501,64 @@
     border-width: 1px;
   }
 
+  #delete-card-modal .modal__container {
+    max-width: 100%;
+    width: 300px;
+    height: auto;
+    gap: 20px;
+    border-radius: 8px;
+    padding: 12px;
+  }
+
+  #delete-card-modal .modal__title {
+    width: auto;
+    height: 48px;
+  }
+  
+  #delete-card-modal .modal__title-writing {
+    font-family: Poppins;
+    font-weight: 500;
+    font-style: Medium;
+    font-size: 20px;
+    text-align: center;
+  }
+  
+  #delete-card-modal .modal__form {
+    width: auto;
+    height: 116px;
+    gap: 12px;
+  }
+  
+  #delete-card-modal .btn-container {
+    display: flex;
+    flex-wrap:wrap;
+    align-content: center;
+    flex-direction: column;
+    width: auto;
+    height: 116px;
+    gap: 12px;
+  }
+  
+  #delete-card-modal .modal__close-btn {
+    display: flex;
+    flex-direction: column;
+    /*top: 158px;
+    right: 264px;*/
+    opacity: 1;
+  }
+  
+  #delete-card-modal .modal__submit-btn {
+    width: 156px;
+    height: 52px;
+    gap: 8px;
+    border-radius: 8px;
+  }
+  
+  #delete-card-modal .modal__cancel-btn {
+    width: 156px;
+    height: 52px;
+    gap: 8px;
+    border-radius: 8px;
+  }
 
 }
