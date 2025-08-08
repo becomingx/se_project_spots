@@ -4,29 +4,25 @@ class Api {
       this._headers = headers;
     }
 
+    _checkResponse(res, parseJson = true) {
+        if (res.ok) {
+          return parseJson ? res.json() : res;
+        }
+        return Promise.reject(`Error: ${res.status}`);
+    };
+
     getAppInfo() {
         return Promise.all([this.getUserCards(), this.getUserInfo()]);
-    }
+    };
     
-
     getUserInfo() {
         return fetch(`${this._baseUrl}/users/me`,
             { 
                 headers: this._headers
             })
-            .then((res) => {
-                if (res.ok) {
-                return res.json();
-            }
-            return Promise.reject(res.status);
-            })
-            .catch((err) => {
-                if (err) {
-                    console.error(err);
-                    return Promise.reject(err);
-                }
-            })
-    }
+           .then(res => this._checkResponse(res))
+ 
+    };
 
     editUserInfo({name, about}) {
         return fetch(`${this._baseUrl}/users/me`,
@@ -38,19 +34,9 @@ class Api {
                     about
                 })
             })
-            .then((res) => {
-                if (res.ok) {
-                    return res.json();
-                }
-                return Promise.reject(res.status);
-            })
-            .catch((err) => {
-                if (err) {
-                    console.error(err);
-                    return Promise.reject(err);
-                }
-            })
-    }   
+           .then(res => this._checkResponse(res))
+  
+    };  
     
     editUserAvatar({avatar}) {
         return fetch(`${this._baseUrl}/users/me/avatar`,
@@ -61,38 +47,19 @@ class Api {
                     avatar
                 })
             })
-            .then((res) => {
-                if (res.ok) {
-                    return res.json();
-                }
-                return Promise.reject(res.status);
-            })
-            .catch((err) => {
-                if (err) {
-                    console.error(err);
-                    return Promise.reject(err);
-                }
-            })
-    }   
+           .then(res => this._checkResponse(res))
+  
+
+    };
 
     getUserCards() {
         return fetch(`${this._baseUrl}/cards`,
             { 
                 headers: this._headers
             })
-            .then((res) => {
-                if (res.ok) {
-                    return res.json();
-                }
-                return Promise.reject(res.status);
-            })
-            .catch((err) => {
-                if (err) {
-                    console.error(err);
-                    return Promise.reject(err);
-                }
-            })
-    }   
+           .then(res => this._checkResponse(res))
+  
+    };
     
     createCard({name, link}) {        
         return fetch(`${this._baseUrl}/cards`,
@@ -104,19 +71,9 @@ class Api {
                     link
                 })
             })
-            .then((res) => {
-                if (res.ok) {
-                    return res.json();
-                }
-                return Promise.reject(res.status);
-            })
-            .catch((err) => {
-             if (err) {
-                console.error(err);
-                return Promise.reject(err);
-                }
-            })
-    }
+           .then(res => this._checkResponse(res))
+     
+    };
 
     removeCard(_id) {        
         return fetch(`${this._baseUrl}/cards/${_id}`,
@@ -124,20 +81,9 @@ class Api {
                 method: "DELETE",
                 headers: this._headers,
             })
-            .then((res) => {
-                if (res.ok) {
-                    return res;
-                }
-                return Promise.reject(res.status);
-            })
-            .catch((err) => {
-                if (err) {
-                    console.error(err);
-                    return Promise.reject(err);
-                }
-            })
-    }
-    
+           .then(res => this._checkResponse(res))
+  
+    };
     
     toggleLikeCard(_id, isLiked) {
         return fetch(`${this._baseUrl}/cards/${_id}/likes`,
@@ -145,20 +91,11 @@ class Api {
                 method: isLiked ? "DELETE" : "PUT",
                 headers: this._headers
             })
-            .then((res) => {
-                if (res.ok) {
-                    return res;
-                }
-                return Promise.reject(res.status);
-            })
-            .catch((err) => {
-                if (err) {
-                    console.error(err);
-                    return Promise.reject(err);
-                }
-            })
-    }
-            
+           .then(res => this._checkResponse(res))
+
+    };
+
 }
 
   export default Api;
+
