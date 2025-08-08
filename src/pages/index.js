@@ -11,7 +11,8 @@ import {
   enableValidation
 } from "/src/scripts/validation.js";
 import {setSaveButtonText} from "/src/utils/helpers.js";
-import "/src/pages/index.css";
+import "../pages/index.css";
+import "../vendor/normalize.css";
 import Api from "/src/utils/api.js";
 
 const api =  new Api({ 
