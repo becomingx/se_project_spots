@@ -61,12 +61,12 @@ const deleteCardModalBtn = deleteCardModal.querySelector(".modal__submit-btn");
 const deleteCardModalCloseBtn = deleteCardModal.querySelector(".modal__close-btn");
 const deleteCardModalForm = deleteCardModal.querySelector(".modal__form"); 
 
-
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
 
 let selectedCard;
 let selectedCardId;
+
 
 const getCardElement = (data) => {
   const cardElement = cardTemplate.content
@@ -277,7 +277,7 @@ const initializeModalListeners = () => {
   closeButtons.forEach(({ button, modal }) => {
     button.addEventListener("click", () => closeModal(modal));
   });
-
+ 
   openButtons.forEach(({ button, modal }) => {
     button.addEventListener("click", () => openModal(modal));
   });
@@ -289,6 +289,7 @@ const initializeModalListeners = () => {
   deleteCardModalForm.addEventListener("submit", handleDeleteCardSubmit);
 };
 
+//this function call must come before api.getAppInfo call
 initializeModalListeners();
 
 api.getAppInfo()
