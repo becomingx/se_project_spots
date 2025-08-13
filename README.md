@@ -1,8 +1,10 @@
 # Project 3: Spots
-
-This is an image sharing site.
+Author: Patricia Tirado
+Follow me on LinkedIn: 
+www.linkedin.com/comm/mynetwork/discovery-see-all?usecase=PEOPLE_FOLLOWS&followMember=patriciatirado29a
 
 ## Project Overview
+This is an image sharing site.
 
 The se-project-spots is the third project of the Software Engineering program at TripleTen. The main idea of the project is to create a responsive site which responds to the user's behavior based on screen size, platform and orientation. I created this site using HTML and CSS, based on the design brief.
 
@@ -102,4 +104,3 @@ https://patriciatirado9.wistia.com/medias/rsoyidujj5
 
 This webpage is deployed to GitHub Pages
 https://becomingx.github.io/se_project_spots/
-
