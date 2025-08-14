@@ -1,28 +1,75 @@
 .profile {
   display: flex;
-  justify-content: space-between;
   align-items: flex-end;
+  justify-content: space-between;
   width: 1280px;
   max-width: 100%;
-}
+} 
 
+.profile .page__section {
+  display: flex;
+  justify-content: space-between;
+}
 .profile__section {
   display:flex;
+  justify-content: space-between;
   padding-top: 20px;
   gap: 12px;
+  width: auto;
+  height: 190px;
 }
 
-.profile__avatar {
+.profile__avatar-container {
+  position: relative;
+  gap: 20px;
+  height: 190px;
+  width: 190px;
+ }
+
+ .profile__avatar {
   border-radius: 8px;
   height: 190px;
   width: 190px;
   object-fit: cover;
 }
 
+ .profile__edit-avatar-btn {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 190px;
+  height: 190px;
+  font-family: poppins, Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 16px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.7;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  visibility: hidden;
+}
+
+.profile__avatar-container:hover .profile__edit-avatar-btn {
+  opacity: 1;
+  transition-duration: 1s;
+  visibility: visible;
+}
+
+.profile__edit-avatar-btn::after {
+  content: "Edit Avatar";
+}
+
 .profile__column {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  height: 190px;
+  width: 420px;
   }
 
 .profile__name {
@@ -70,7 +117,6 @@
   border: none;
   background-color: transparent;
   position: relative;
-  cursor: pointer;
 }
 
 .profile__edit-btn:hover {
@@ -80,6 +126,7 @@
 }
 
 .profile__add-btn {
+  align-self: flex-end;
   flex-shrink: 0;
   font-family: poppins, Arial, Helvetica, sans-serif;
   font-weight: 500;
@@ -122,6 +169,29 @@
     height: 80px;
     width: 80px;
     margin-top: 12px;
+  }
+
+  .profile__avatar-container {
+    height: 80px;
+    width: 80px;
+    margin-top: 12px;
+  }
+
+  .profile__edit-avatar-btn {
+    width: 24px;
+    height: 24px;
+    top: 52px;
+    left: 52px;
+    gap: 8px;
+    opacity: .6;
+    border-radius: 6px;
+    padding: 4px;
+    margin-top: 12px;
+    background: #212121;
+  }
+
+  .profile__edit-avatar-btn::after {
+    content: none;
   }
 
   .profile {
